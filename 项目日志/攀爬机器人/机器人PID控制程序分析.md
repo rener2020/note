@@ -11,3 +11,4 @@ $d_{error}=(p_{error} - p_{error\_last})/t_{during}$
 $p_{term} = p_{gain} * p_{error}$
 $i_{term} = i_{gain} * i_{error}$
 $d_{term} = d_{gain} * d_{error}$
+$i_{term}=MAX(i_{min}, MIN( i_term,i_{max})$
