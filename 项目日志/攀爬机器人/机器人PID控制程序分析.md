@@ -14,4 +14,5 @@ $i_{term} = i_{gain} * i_{error}$
 $i_{term}=MAX(i_{min}, MIN( i_{term},i_{max})$
 $d_{term} = d_{gain} * d_{error}$
 $term=p_{term}+i_{term}+d_{term}$
-$force=$
+
+$force=term$
