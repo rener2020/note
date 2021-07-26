@@ -4,7 +4,6 @@ tags: 新建,模板,小书匠
 renderNumberedHeading: true
 grammar_cjkRuby: true
 ---
-\documentclass[fleqn]{article}
 
 $p_{error}= target - current$
 $d_{error}=(p_{error} - p_{error-1})/t_{during}$
