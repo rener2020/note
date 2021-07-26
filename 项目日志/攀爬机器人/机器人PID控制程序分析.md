@@ -18,6 +18,6 @@ $term=p_{term}+i_{term}+d_{term}$
 $force=term$
 
 $REVOLUTE$
-$M=α*{I}=force*{L}$
+$M=α*{I}=force* L$
 $I=m*{r}^{2}$
 $W=\alpha*{t}$
