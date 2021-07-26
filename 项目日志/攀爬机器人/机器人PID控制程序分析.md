@@ -7,6 +7,6 @@ grammar_cjkRuby: true
 
 $p_{error}= target - current$
 $d_{error}=(p_{error} - p_{error-1})/t_{during}$
-
+$i_{error}$
 
 
