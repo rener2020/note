@@ -7,9 +7,11 @@ grammar_cjkRuby: true
 
 
 $$
-\frac{d_e}{d_t}=error_0 - error_{-1}
+error = target - current \\
+\frac{d_e}{d_t}=(error_0 - error_{-1})/t_{during}\\
+\frac{d_e}{d_t} = (error - p_error_last_) / dt.toSec()
 $$
 $$
-error_dot = (error - p_error_last_) / dt.toSec()
-error = target - current
+
+
 $$
