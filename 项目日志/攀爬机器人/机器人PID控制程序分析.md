@@ -20,8 +20,7 @@ $force=term$
 $REVOLUTE$
 $M=α*{I}=force* L$
 $I=m*{r}^{2}$
-$W=\alpha*{t}$
-$\to W=\frac{force* L }{m* r^2}$
+$\to \alpha=\frac{force* L }{m* r^2}$
 
 $CONTINUOUS$
 $F=mdv/dt=ma$
