@@ -23,4 +23,5 @@ $I=m*{r}^{2}$
 $\to \alpha=\frac{force* L }{m* r^2}$
 
 $CONTINUOUS$
-$F=mdv/dt=ma$
+$force=ma$
+$a=\frac{force}{m}$
