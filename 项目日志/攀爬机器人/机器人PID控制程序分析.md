@@ -8,5 +8,4 @@ grammar_cjkRuby: true
 $p_{error}= target - current$
 $d_{error}=(p_{error} - p_{error\_last})/t_{during}$
 $i_{error}=i_{error\_last} + p_{error}$
-
-
+$i_{term} = i_{gain} * i_{error}$
