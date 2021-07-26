@@ -6,8 +6,8 @@ grammar_cjkRuby: true
 ---
 \documentclass[fleqn]{article}
 
-$error = target - current$
-$\frac{d_e}{d_t}=(error_0 - error_{-1})/t_{during}$
+$p_{error}= target - current$
+$d_{error}=(p_{error} - p_{error-1})/t_{during}$
 
 
 
