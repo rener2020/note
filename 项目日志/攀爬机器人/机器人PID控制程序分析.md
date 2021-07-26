@@ -21,3 +21,6 @@ $REVOLUTE$
 $M=α*{I}=force* L$
 $I=m*{r}^{2}$
 $W=\alpha*{t}$
+
+$CONTINUOUS$
+$F=mdv/dt=ma$
