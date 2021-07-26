@@ -16,3 +16,7 @@ $d_{term} = d_{gain} * d_{error}$
 $term=p_{term}+i_{term}+d_{term}$
 
 $force=term$
+
+$REVOLUTE$
+$M=α*{I}$
+$I=m*{r}^{2}$
