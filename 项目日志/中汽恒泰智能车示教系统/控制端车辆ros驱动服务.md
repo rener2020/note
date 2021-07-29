@@ -106,7 +106,6 @@ e=>end: 结束
 op0=>operation: 从车端服务获取当前可用传感器
 op1=>operation: 车辆数据是否超时
 cond1=>condiction: 传感器数据是否超时
-
 st->op0->cond1
 cond1(no)->op1
 ```
