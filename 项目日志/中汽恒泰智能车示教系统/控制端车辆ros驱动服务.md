@@ -34,5 +34,7 @@ while True:
 
 ```
 
-如果希望读取车辆的实时信息，只需要使用`from app.ros.vehicle import VehicleNodeService`并实例化
-其基本流程图如下：
+目前车辆服务暴露出来两个可用变量接口与三个可用函数接口。
+可用实时更新变量
+- vehicle_current_data
+- sensors
