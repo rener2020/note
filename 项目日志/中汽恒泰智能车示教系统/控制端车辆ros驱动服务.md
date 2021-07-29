@@ -72,6 +72,7 @@ def vehicle_node_service(self):
                 self.start_vehicle_node.clear()
                 # continue
                 if not self.sensor_service_start:
+				# 开启传感器状态数据服务
                     start_thread_work(self.vehicle_check_sensor_service)
                     self.sensor_service_start = True
             if self.restart_vehicle_node.is_set():
