@@ -115,7 +115,7 @@ cond(yes)->e
 其中更新传感器信息代码如下：
 
 ``` py
-for process_name in self.sensors:
+            for process_name in self.sensors:
                 if process_name not in vehicle_server_processes:
                     # 如果车端服务设置该传感器不使能
                     self.sensors[process_name]['sensor_status'] = False
