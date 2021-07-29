@@ -132,3 +132,5 @@ cond(yes)->e
                 else:
                     self.sensors[process_name]['data_status'] = False
 ```
+
+基于小车数据的服务都依赖于本地`ros`节点与车端`ros`节点的通讯过程
