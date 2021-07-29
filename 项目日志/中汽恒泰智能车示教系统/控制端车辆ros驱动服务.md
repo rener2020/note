@@ -91,10 +91,23 @@ def vehicle_node_service(self):
 st=>start: 开始
 e=>end: 结束
 op0=>operation: 从本地ros节点读取小车数据
-op1=>operation: 载入登录界面
-op2=>operation: 用户登录
-op3=>operation: 获取用户信息
-op4=>operation: 根据用户信息载入主界面
+op1=>operation: 进行数据更新
+cond=>condition: 程序退出？
 
-st->op0->op4->e
+st->op0->op1->cond
+cond(no)->op0
+cond(yes)->e
+```
+
+小车传感器数据服务对应函数为`vehicle_check_sensor_service`，其流程图如下：
+```flow!
+st=>start: 数据初始化
+e=>end: 结束
+op0=>operation: 从本地ros节点读取小车数据
+op1=>operation: 进行数据更新
+cond=>condition: 程序退出？
+
+st->op0->op1->cond
+cond(no)->op0
+cond(yes)->e
 ```
