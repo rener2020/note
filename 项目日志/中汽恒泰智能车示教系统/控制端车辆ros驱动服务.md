@@ -103,11 +103,10 @@ cond(yes)->e
 ```flow!
 st=>start: 数据初始化
 e=>end: 结束
-op0=>operation: 从本地ros节点读取小车数据
-op1=>operation: 进行数据更新
-cond=>condition: 程序退出？
+op0=>operation: 从车端服务获取当前可用传感器
+op1=>operation: 车辆数据是否超时
+cond1=>condiction: 传感器数据是否超时
 
-st->op0->op1->cond
-cond(no)->op0
-cond(yes)->e
+st->op0->cond1
+cond1(no)->op1
 ```
