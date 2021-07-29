@@ -89,7 +89,7 @@ def vehicle_node_service(self):
 ```flow!
 st=>start: 开始
 e=>end: 结束
-op0=>operation: 初始化程序
+op0=>operation: 从本地ros节点读取小车数据
 op1=>operation: 载入登录界面
 op2=>operation: 用户登录
 op3=>operation: 获取用户信息
