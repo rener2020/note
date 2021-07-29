@@ -103,11 +103,32 @@ cond(yes)->e
 ```flow!
 st=>start: 开始
 e=>end: 结束
-op0=>operation: 从本地ros节点读取小车数据
-op1=>operation: 进行数据更新
+op0=>operation: 载入本地配置文件
+op1=>operation: 访问车端服务获取当前传感器
+op2=>operation: 更新传感器状态信息
 cond=>condition: 程序退出？
-
-st->op0->op1->cond
+st->op0->op1->op2->cond
 cond(no)->op0
 cond(yes)->e
+```
+
+其中更新传感器信息代码如下：
+
+``` py
+for process_name in self.sensors:
+                if process_name not in vehicle_server_processes:
+                    # 如果车端服务设置该传感器不使能
+                    self.sensors[process_name]['sensor_status'] = False
+                    # 不往下检查，默认传感器数据状态为否
+                    self.sensors[process_name]['data_status'] = False
+                    continue
+                self.sensors[process_name]['sensor_status'] = True
+                topic_name = self.sensors[process_name]['topic']
+                if topic_name in self.sensors_log_time and time.time() - self.sensors_log_time[topic_name] < 2:
+                    # 如果存在该传感器记录数据且两秒内该传感器有数据，则说明该传感器激活且状态正常
+                    sim_log(self.sensors[process_name])
+                    self.sensors[process_name]['data_status'] = True
+                    self.sensors[process_name]['sensor_status'] = True
+                else:
+                    self.sensors[process_name]['data_status'] = False
 ```
