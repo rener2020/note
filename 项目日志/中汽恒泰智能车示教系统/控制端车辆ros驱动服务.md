@@ -84,7 +84,7 @@ def vehicle_node_service(self):
                 self.restart_vehicle_node.clear()
 ```
 
-小车数据处理服务对应函数
+小车数据处理服务对应函数为`start_processing_vehicle_node_data`
 
 其流程图如下：
 ```flow!
