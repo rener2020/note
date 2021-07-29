@@ -134,4 +134,5 @@ cond(yes)->e
                     self.sensors[process_name]['data_status'] = False
 ```
 
+### Vehicle
 基于小车数据的服务都依赖于本地`ros`节点与车端`ros`节点的通讯过程，这一通讯过程的实现可见`Vehicle`类。因为`ros`节点需要在主线程中初始化，所以开启一个进程来运行`ros`节点，进程间使用队列进行通信。
