@@ -45,3 +45,23 @@ while True:
 - `stop()`：关闭本地`ros`节点
 - `restart()`：重启本地`ros`节点
 
+其流程图如下：
+```flow!
+st=>start: 开始
+e=>end: 结束
+op0=>operation: 初始化程序
+op1=>operation: 载入登录界面
+op2=>operation: 用户登录
+op3=>operation: 获取用户信息
+op4=>operation: 根据用户信息载入主界面
+op=>operation: 在
+cond1=>condition: mac地址验证成功？
+cond2=>condition: 登录成功？
+cond3=>condition: 签名是否正确？
+st->op0->cond1
+cond1(no)->cond1
+cond1(yes)->op1->op2->cond2
+cond2(no)->op2
+cond2(yes)->op3->op4
+op4->e
+```
