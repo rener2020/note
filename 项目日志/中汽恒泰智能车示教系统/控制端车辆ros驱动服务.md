@@ -1,6 +1,6 @@
 ---
 title: 控制端车辆ros驱动服务
-tags: 新建,模板,小书匠
+tags: 
 renderNumberedHeading: true
 grammar_cjkRuby: true
 ---
