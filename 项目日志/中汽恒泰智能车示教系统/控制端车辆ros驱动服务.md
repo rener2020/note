@@ -35,6 +35,12 @@ while True:
 ```
 
 目前车辆服务暴露出来两个可用变量接口与三个可用函数接口。
-可用实时更新变量
-- vehicle_current_data
+可用实时更新变量：
+- `vehicle_current_data`：车辆实时数据
+- `sensors`：车辆传感器状态
 - sensors
+
+可用函数：
+- `start()`：开启本地`ros`节点
+- `stop()`：关闭本地`ros`节点
+- `restart()`：重启本地`ros`节点
