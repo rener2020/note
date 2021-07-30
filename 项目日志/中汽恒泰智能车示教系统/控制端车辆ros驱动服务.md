@@ -159,6 +159,10 @@ cond(yes)->e
 - 开启`ros`节点
 - 订阅`ros`话题
 - 获取话题数据
+其核心代码如下：
 
-
+``` py
+# 开启ros节点
+rospy.init_node('vehicle', anonymous=True, disable_signals=True)
+```
 
