@@ -164,5 +164,8 @@ cond(yes)->e
 ``` py
 # 开启ros节点
 rospy.init_node('vehicle', anonymous=True, disable_signals=True)
+# 订阅ros话题
+# 电压
+rospy.Subscriber('/voltage', Float32, callback=self.voltage_action)
 ```
 
