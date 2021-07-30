@@ -116,6 +116,10 @@ cond(yes)->e
 其中更新传感器信息代码如下：
 
 ``` py
+            state, result = vehicle_communication.communicate({
+                'action': "car_sys_proc",
+            })
+			vehicle_server_processes = result['data']
             for process_name in self.sensors:
                 if process_name not in vehicle_server_processes:
                     # 如果车端服务设置该传感器不使能
@@ -135,4 +139,5 @@ cond(yes)->e
 ```
 
 ### Vehicle
+
 基于小车数据的服务都依赖于本地`ros`节点与车端`ros`节点的通讯过程，这一通讯过程的实现可见`Vehicle`类。因为`ros`节点需要在主线程中初始化，所以开启一个进程来运行`ros`节点，进程间使用队列进行通信。
