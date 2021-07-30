@@ -144,7 +144,7 @@ cond(yes)->e
 ``` py
     def __start_vehicle_node(self):
 		...
-
+		...
         def start_vehicle_node():
             # 启动车辆节点函数
             Vehicle(self.vehicle_node_data_queue, self.start_vehicle_node, self.stop_vehicle_node)
