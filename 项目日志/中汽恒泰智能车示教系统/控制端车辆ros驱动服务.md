@@ -182,9 +182,11 @@ cond(yes)->e
 ``` py
     def vehicle_node_data_queue_put(self, content):
         if self.is_queue_full:
+            # 队列满标志，当其置True时不允许其他线程对队列进行操作
             sim_log("车辆节点通讯队列满，抛弃内容，直接返回")
             return
         if self.vehicle_node_data_queue.full():
+            # 置队列满标志为True，不允许其他线程对队列进行操作
             self.is_queue_full = True
             try:
                 while not self.vehicle_node_data_queue.empty():
