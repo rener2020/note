@@ -156,16 +156,46 @@ cond(yes)->e
 ```
 
 `Vehicle`类的核心功能为以下三个：
-- 开启`ros`节点
-- 订阅`ros`话题
-- 获取话题数据
-其核心代码如下：
+- 开启`ros`节点：
+	``` py
+	# 开启ros节点
+	rospy.init_node('vehicle', anonymous=True, disable_signals=True)
+	```
+- 订阅`ros`话题，以小车电压话题为例：
+	``` py
+	# 电压
+	rospy.Subscriber('/voltage', Float32, callback=self.voltage_action)
+	```
+- 获取话题数据，以小车电压数据为例：
+	``` py
+	def voltage_action(self, data):
+        self.vehicle_node_data_queue_put({
+            'state': True,
+            'detail': '',
+            'type': 'voltage',
+            'data': data.data
+        })
+	```
+	
+`Vehicle`类实例与`VehicleNodeService`实例以队列的方式进行通讯，`Vehicle`实例只进行入队列操作，`VehicleNodeService`实例只进行出队列操作，`Vehicle`中操作队列的函数如下：
 
 ``` py
-# 开启ros节点
-rospy.init_node('vehicle', anonymous=True, disable_signals=True)
-# 订阅ros话题
-# 电压
-rospy.Subscriber('/voltage', Float32, callback=self.voltage_action)
+    def vehicle_node_data_queue_put(self, content):
+        if self.is_queue_full:
+            sim_log("车辆节点通讯队列满，抛弃内容，直接返回")
+            return
+        if self.vehicle_node_data_queue.full():
+            self.is_queue_full = True
+            try:
+                while not self.vehicle_node_data_queue.empty():
+                    self.vehicle_node_data_queue.get_nowait()
+            except Exception, e:
+                sim_log("车辆节点通讯队列冲突,取队列出错：{}".format(str(e.message)))
+            finally:
+                self.is_queue_full = False
+        try:
+            self.vehicle_node_data_queue.put_nowait(content)
+        except Exception, e:
+            sim_log("车辆节点通讯队列冲突，入队列出错：{}".format(str(e.message)))
 ```
 
