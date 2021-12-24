@@ -21,3 +21,4 @@ grammar_cjkRuby: true
 ![enter description here](./images/1640326445790.png)
 
 ## Temporal Difference (TD) Learning
+![enter description here](./images/1640326719232.png)
