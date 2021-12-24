@@ -5,4 +5,4 @@ grammar_cjkRuby: true
 ---
 
 # Approximate the Q Function
-goal
+goal: win the game ($\approx$maximize the total reword)
