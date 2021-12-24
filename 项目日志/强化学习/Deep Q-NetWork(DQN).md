@@ -29,3 +29,6 @@ grammar_cjkRuby: true
 
 **Question：how to update the model**
 1. Gradient descent
+
+- Can i update before finishing the trip?
+- Can i get a better $w$ as soon as I arrived DC?
