@@ -14,3 +14,6 @@ grammar_cjkRuby: true
 - solution: DQN
 - Use neural network **Q(s,a;w)** to approximate $Q^*(s,a)$
 
+## DQN
+- input shape: size of the screenshot.
+- Output shape: dimension of action space
