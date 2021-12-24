@@ -4,4 +4,3 @@ renderNumberedHeading: true
 grammar_cjkRuby: true
 ---
 
-。
