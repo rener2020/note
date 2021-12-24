@@ -5,4 +5,5 @@ grammar_cjkRuby: true
 ---
 
 # Approximate the Q Function
-goal: win the game ($\approx$ maximize the total reward.)
+**goal**: win the game ($\approx$ maximize the total reward.)
+**Question**: If we know $Q^*(s,a)$
