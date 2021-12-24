@@ -51,3 +51,5 @@ identify:$U_t=R_t+\gamma$
 
 ![enter description here](./images/1640331604386.png)
 
+## Train DQN using TD learning
+- prediction;$Q(s_t,a_t;w_t)$
