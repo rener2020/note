@@ -54,4 +54,4 @@ identify:$U_t=R_t+\gamma$
 ## Train DQN using TD learning
 - prediction;$Q(s_t,a_t;w_t)$
 - TD target: $y_t=r_t+\gamma\cdot{}Q(s_{t+1},a_{t+1};w_t)=r_t+\gamma\cdot{}\underset{a}{max}Q(s_{t+1,a;w_t})$
-- Loss:$L_t=\frac{1}{2}[Q(s_t,a_t;w)-y_t]^2$
+- Loss: $L_t=\frac{1}{2}[Q(s_t,a_t;w)-y_t]^2$
