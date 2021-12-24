@@ -5,4 +5,4 @@ grammar_cjkRuby: true
 ---
 
 # Policy Function approximation
-## Policy Function $\pi(a,s)$
+## Policy Function $\pi(a|s)$
