@@ -13,3 +13,4 @@ grammar_cjkRuby: true
 
 - solution: DQN
 - Use neural network **Q(s,a;w)** to approximate $Q^*(s,a)$
+
