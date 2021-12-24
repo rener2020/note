@@ -9,4 +9,4 @@ grammar_cjkRuby: true
 **Question**: If we know $Q^*(s,a)$, what is the best action?
 - obviously, the best action is $a^*=\underset{a}{argmax}Q^*(s,a)$ 
 
-Challenge: We do not know $Q^*(s,a)$.
+**Challenge**: We do not know $Q^*(s,a)$.
