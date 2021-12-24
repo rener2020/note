@@ -62,4 +62,6 @@ Definition: Optimal action-value function
 - $Q^*(s_t,a_t)=\underset{\pi}{max}\mathbb{E}[U_t|S_t=s_t,A_t=a_t]$.
 
 DQN: Approximate $Q^*(s,a)$ using a neural network
-- $Q(s,a;w) is $
+- $Q(s,a;w)$ is a neural network parameterized by $w$
+- Input: observed state $s$
+- Output: scores for every action $a\in{}\mathcal{A}$
