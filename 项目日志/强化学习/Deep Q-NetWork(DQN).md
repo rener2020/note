@@ -31,4 +31,6 @@ grammar_cjkRuby: true
 1. Gradient descent
 
 - Can i update before finishing the trip?
-- Can i get a better $w$ as soon as I arrived DC?
+	TD target
+- Can i get a better $w$ as soon as I arrived DC? 
+
