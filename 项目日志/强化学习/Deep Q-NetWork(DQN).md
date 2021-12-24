@@ -22,3 +22,9 @@ grammar_cjkRuby: true
 
 ## Temporal Difference (TD) Learning
 ![enter description here](./images/1640326719232.png)
+
+**Example**
+- I want to drive from N to A
+- Model $Q(w)$ estimates the time cost, e.g., 1000 minutes
+
+**Question：how to update the model**
