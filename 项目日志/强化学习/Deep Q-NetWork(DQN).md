@@ -10,3 +10,4 @@ grammar_cjkRuby: true
 - obviously, the best action is $a^*=\underset{a}{argmax}Q^*(s,a)$ 
 
 **Challenge**: We do not know $Q^*(s,a)$.
+
