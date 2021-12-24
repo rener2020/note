@@ -17,3 +17,5 @@ grammar_cjkRuby: true
 ## DQN
 - input shape: size of the screenshot.
 - Output shape: dimension of action space
+
+![enter description here](./images/1640326445790.png)
