@@ -28,4 +28,4 @@ grammar_cjkRuby: true
 - Model $Q(w)$ estimates the time cost, e.g., 1000 minutes
 
 **Question：how to update the model**
-1. Gradient decent
+1. Gradient descent
