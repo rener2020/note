@@ -36,3 +36,4 @@ grammar_cjkRuby: true
 - Can i get a better $w$ as soon as I arrived DC? 
 
 ## TD Learning for DQN
+$$T_{N\to{}A}\approx{}T_{N\to{}D}+T_{D\to{}A}$$
