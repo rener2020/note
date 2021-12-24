@@ -65,3 +65,11 @@ DQN: Approximate $Q^*(s,a)$ using a neural network
 - $Q(s,a;w)$ is a neural network parameterized by $w$
 - Input: observed state $s$
 - Output: scores for every action $a\in{}\mathcal{A}$
+
+## Temporal Difference (TD) Learning
+Algorithm: One iteration of TD learning
+1. Observe state $S_t=s_t$ and action $A_t=a_t$
+2. Predict the value: $q_t=Q(s_t,a_t;w_t)$.
+3. Differentiate the value network: d_t
+4. Environment provides new state $s_{t+1}$ and reward $r_t$.
+	
