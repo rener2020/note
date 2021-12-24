@@ -45,3 +45,5 @@ identify:$U_t=R_t+\gamma$
 - DQN's output, $Q(s_t,a_t;w)$, is estimate of $\mathbb{E}[U_t]$
 - DQN's output, $Q(s_{t+1},a_{t+1};w)$, is estimate of $\mathbb{E}[U_{t+1}]$
 - Thus, $Q(s_t,a_t;w)\approx{}\mathbb{E}[R_t + \gamma\cdot{}Q(S_{t+1},A_{t+1};w)]$
+
+![enter description here](./images/1640331604386.png)
