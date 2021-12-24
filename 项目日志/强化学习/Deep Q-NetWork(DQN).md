@@ -11,3 +11,5 @@ grammar_cjkRuby: true
 
 **Challenge**: We do not know $Q^*(s,a)$.
 
+- solution: DQN
+- Use neural network **Q(s,a;w)** to approximate $Q^*(s,a)$
