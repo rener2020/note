@@ -5,4 +5,3 @@ grammar_cjkRuby: true
 ---
 
 
-。
