@@ -37,3 +37,6 @@ grammar_cjkRuby: true
 
 ## TD Learning for DQN
 $$T_{N\to{}A}\approx{}T_{N\to{}D}+T_{D\to{}A}$$
+
+In deep reforcement learning:
+$$Q(s_t,a_t;w)\approx{}r_t+\gamma\cdot{}Q(s_{t+1},a_{t+1};w)$$
