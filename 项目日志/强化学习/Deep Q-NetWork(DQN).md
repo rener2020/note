@@ -73,4 +73,5 @@ Algorithm: One iteration of TD learning
 3. Differentiate the value network: d_t
 4. Environment provides new state $s_{t+1}$ and reward $r_t$.
 5. Compute TD target: $y_t=r_t+\gamma\cdot{}\underset{a}{max}Q(s_{t+1},a;w_t)$
+6. 
 	
