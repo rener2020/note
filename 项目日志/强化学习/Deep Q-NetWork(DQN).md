@@ -60,3 +60,6 @@ identify:$U_t=R_t+\gamma$
 ## Value-Based Reforcement Learning
 Definition: Optimal action-value function
 - $Q^*(s_t,a_t)=\underset{\pi}{max}\mathbb{E}[U_t|S_t=s_t,A_t=a_t]$.
+
+DQN: Approximate $Q^*(s,a)$ using a neural network
+- $Q(s,a;w) is $
