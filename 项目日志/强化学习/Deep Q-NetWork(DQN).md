@@ -19,3 +19,5 @@ grammar_cjkRuby: true
 - Output shape: dimension of action space
 
 ![enter description here](./images/1640326445790.png)
+
+## Temporal Difference (TD) Learning
