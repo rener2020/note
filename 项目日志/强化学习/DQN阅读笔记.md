@@ -16,3 +16,5 @@ These methods utilise a range of neural network architectures, including convolu
 - Furthermore, in RL the data distribu-tion changes as the algorithm learns new behaviours, which can be problematic for deep learning methods that assume a fixed underlying distribution.
 
 ## Overcome
+- This paper demonstrates that a convolutional neural network can overcome these challenges to learn successful control policies from raw video data in complex RL environments.
+- The network is trained with a variant of the Q-learning [26] algorithm, with stochastic gradient descent to update the weights.
