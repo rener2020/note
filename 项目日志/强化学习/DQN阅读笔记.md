@@ -20,5 +20,6 @@ These methods utilise a range of neural network architectures, including convolu
 - The network is trained with a variant of the **Q-learning [26] algorithm**, with stochastic gradient descent to update the weights.
 - To alleviate the problems of correlated data and non-stationary distributions, we use an <font color="red">**experience replay mechanism**</font> [13] which randomly samples previous transitions, and thereby smooths the training distribution over many past behaviors.
 
-main points
+# Background
+
 
