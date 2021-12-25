@@ -5,7 +5,8 @@ grammar_cjkRuby: true
 ---
 
 # Overview
-- target:Learning to control agents directly from high-dimensional sensory inputs
+## target
+Learning to control agents directly from high-dimensional sensory inputs
 - method: These methods utilise a range of neural network architectures, including convolutional networks, multilayer perceptrons, restricted Boltzmann machines and recurrent neural networks, and have ex-ploited both supervised and unsupervised learning.
 - challenge
 	- Firstly, most successful deep learning applications to date have required large amounts of hand-labelled training data.
