@@ -10,4 +10,5 @@ grammar_cjkRuby: true
 - challenge
 	- Firstly, most successful deep learning applications to date have required large amounts of hand-labelled training data.
 	- RL algorithms, on the other hand, must be able to learn from a scalar reward signal that is frequently sparse, noisy and delayed.
+	- Another issue is that most deep learning algorithms assume the data samples to be independent, while in reinforcement learning one typically encounters sequences of highly correlated states.
 	- 
