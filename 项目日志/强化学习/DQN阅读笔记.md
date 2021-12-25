@@ -18,3 +18,4 @@ These methods utilise a range of neural network architectures, including convolu
 ## Overcome
 - This paper demonstrates that a convolutional neural network can overcome these challenges to learn successful control policies from raw video data in complex RL environments.
 - The network is trained with a variant of the Q-learning [26] algorithm, with stochastic gradient descent to update the weights.
+- To alleviate the problems of correlated data and non-stationary distributions, we use an experience replay mechanism [13] which randomly samples previous transitions, and thereby smooths the training distribution over many past behaviors.
