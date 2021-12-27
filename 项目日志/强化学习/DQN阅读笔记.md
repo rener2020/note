@@ -30,3 +30,6 @@ $\infty$
 $$R_{t0}=\sum_{t=t_0}^\infty\gamma^{t-t_0}r_t$$
 - $R_{t_0}$  is also known as the return
 -  $\gamma$, should be a constant between 0 and 1
+
+The main idea behind Q-learning is that if we had a function $Q^*$
+$$Q^*:State\times{}Action$$
