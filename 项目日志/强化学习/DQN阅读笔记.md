@@ -33,3 +33,5 @@ $$R_{t0}=\sum_{t=t_0}^\infty\gamma^{t-t_0}r_t$$
 
 The main idea behind Q-learning is that if we had a function $Q^*$
 $$Q^*:State\times{}Action$$
+that could tell us what our return would be, if we were to take an action in a given state, then we could easily construct a policy that maximizes our rewards:
+$$\pi^*(s)=\underset{a}{argmax}Q^*(s,a)$$
