@@ -23,3 +23,10 @@ These methods utilise a range of neural network architectures, including convolu
 # Background
 
 
+$\infty$
+
+# DQN algorithm
+## cumulative reward
+$$R_{t0}=\sum_{t=t_0}^\infty\gamma^{t-t_0}r_t$$
+- $R_{t_0}$  is also known as the return
+-  $\gamma$, should be a constant between 00 and 11
