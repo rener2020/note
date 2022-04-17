@@ -19,3 +19,5 @@ grammar_cjkRuby: true
 求取积分图时，对图像所有像素遍历一遍，得到积分图后，计算任何矩形区域内的像素灰度和只需进行三次加减运算，如下图所示。
 ![enter description here](./images/1650180197970.png)
 # 近似DoH金字塔
+
+**Hessian矩阵近似**
