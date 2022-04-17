@@ -10,5 +10,5 @@ grammar_cjkRuby: true
 ![enter description here](./images/1650179648130.png)
 
 # 积分图
-
+积分图是一种用于快速计算矩阵图像区域像素之和的数据结构
 # 近似DoH金字塔
