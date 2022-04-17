@@ -21,3 +21,7 @@ grammar_cjkRuby: true
 # 近似DoH金字塔
 
 **Hessian矩阵近似**
+![enter description here](./images/1650180611855.png)
+![enter description here](./images/1650180635075.png)
+
+Hessian矩阵可用于图像的斑点检测，使用Hessian矩阵的行列式DoH作为构建图像尺度空间的方式，反映了图像的局部纹理、结构信息
