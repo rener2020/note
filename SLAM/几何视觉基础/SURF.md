@@ -14,4 +14,8 @@ grammar_cjkRuby: true
 ![enter description here](./images/1650180091196.png)
 ![enter description here](./images/1650180098427.png)
 
+借助积分图，图像与高斯二阶微分模板的滤波转化为对积分图像的加减运算，从而在特征点的检测时大大缩短了搜索时间。
+
+求取积分图时，对图像所有像素遍历一遍，得到积分图后，计算任何矩形区域内的像素灰度和只需进行三次加减运算，如下图所示。
+![enter description here](./images/1650180197970.png)
 # 近似DoH金字塔
