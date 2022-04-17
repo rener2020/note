@@ -28,4 +28,14 @@ Hessian矩阵可用于图像的斑点检测，使用Hessian矩阵的行列式DoH
 ![enter description here](./images/1650180750230.png)
 
 步骤
-1. 高斯滤波平滑图像、抑制噪声
+1. 使用不同的σ生成(∂2g∂x2+∂2g∂y2)或∂2g∂x2、∂2g∂y2、∂2g∂x∂y高斯卷积模板，并对图像进行卷积运算。
+2. 在图像的位置空间和尺度空间搜索LoG或DoH的峰值，并进行非极大值抑制，精确定位到图像极值点。
+
+简化Hessian矩阵行列式：
+![enter description here](./images/1650181179571.png)
+![enter description here](./images/1650181194933.png)
+
+![enter description here](./images/1650181254164.png)
+
+在实际计算滤波响应值的时候，需要使用模版中盒子（矩形）区域的面积进行归一化处理，以保证一个统一的F范数能适应所有的滤波尺寸。
+
