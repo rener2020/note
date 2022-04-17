@@ -49,3 +49,12 @@ Hessian矩阵可用于图像的斑点检测，使用Hessian矩阵的行列式DoH
 
 # 特征点方向匹配
 为保证特征描述子具有旋转不变性，需要对每个特征点分配一个主方向。为此，以特征点为中心，以6s（s为特征点尺度）为半径的区域内，计算图像的haar小波响应，实际上是对图像进行梯度计算，利用积分图加速
+
+![enter description here](./images/1650184521693.png)
+
+使用$\sigma=2s$的高斯函数对Haar小波的响应值进行加权，为了求取主方向，设计一个张角为$\frac{\pi}{3}$的扇形窗口并进行累加得到矢量$(m_{w},\theta_{\omega})$
+![enter description here](./images/1650184727571.png)
+主方向为最大Haar响应累加值所对应的方向，即$\theta=\theta_w|maxm_w$
+![enter description here](./images/1650184781570.png)
+
+同样，具有主方向与辅助方向
