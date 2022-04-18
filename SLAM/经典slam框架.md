@@ -10,4 +10,5 @@ grammar_cjkRuby: true
 
 # slam问题的数学表述
 运动：考虑从$k-1$时刻到$k$时刻，智能体的位置$x$是如何变化的
+
 $x_k=f(x_{k-1},w_k,u_k)$
