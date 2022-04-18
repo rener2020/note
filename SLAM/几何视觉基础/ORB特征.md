@@ -18,3 +18,7 @@ grammar_cjkRuby: true
 
 # ORB特征
 **Oriented FAST and Rotated BRIEF**
+特征点使用：Oriented FAST
+描述子：Rotated BRIEF
+
+ORB将这两种方法进行来改进并结合在了一起，得到了一种可以快速提取的ORB特征，在速度方面相较于SIFT与SURF有明显的提升同时保证了特征子的旋转、尺度不变性。
