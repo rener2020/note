@@ -41,3 +41,7 @@ FAST无法体现出一个优良特征点的尺度不变性与特征不变性
    ![enter description here](./images/1650245577093.png)
 3. 连接特征点与质心得到方向向量，为特征点方向
    ![enter description here](./images/1650245586868.png)
+   
+   
+# Rotated BRIEF
+## BRIEF
