@@ -15,4 +15,4 @@ grammar_cjkRuby: true
   matching observations withelements in previously visited areas using a place recog-nition technique, regardless of the accumulated drift (loopdetection), the current area being previously mappedin a disconnected map (map merging), or the trackingbeing lost (relocalization). Long-term matching allows toreset the drift and to correct the map using pose-graph(PG) optimization, or more accurately, using BA. This isthe key of SLAM accuracy in medium and large loopyenvironments.
   
   
- The main novelties of ORB-SLAM3 are:
+ ## The main novelties of ORB-SLAM3 are:
