@@ -20,3 +20,4 @@ grammar_cjkRuby: true
    fully relies on Maximum-a-Posteriori (MAP) estimation
 - Improved-recall place recognition.
 - ORB-SLAM Atlas
+   the first complete multi-map SLAMsystem able to handle visual and visual-inertial systems,in monocular and stereo configurations.
