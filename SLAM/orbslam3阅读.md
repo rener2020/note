@@ -23,3 +23,7 @@ grammar_cjkRuby: true
    the first complete multi-map SLAMsystem able to handle visual and visual-inertial systems,in monocular and stereo configurations.
 - An abstract camera representation
   Now I only care  pin-hole model
+  
+  
+## Pre Work
+Monocular SLAM was first solved in MonoSLAM
