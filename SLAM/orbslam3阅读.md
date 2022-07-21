@@ -22,3 +22,4 @@ grammar_cjkRuby: true
 - ORB-SLAM Atlas
    the first complete multi-map SLAMsystem able to handle visual and visual-inertial systems,in monocular and stereo configurations.
 - An abstract camera representation
+  Now I only care  pin-hole model
