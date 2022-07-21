@@ -19,3 +19,4 @@ grammar_cjkRuby: true
  - A monocular and stereo visual-inertial SLAM system
    fully relies on Maximum-a-Posteriori (MAP) estimation
 - Improved-recall place recognition.
+- ORB-SLAM Atlas
