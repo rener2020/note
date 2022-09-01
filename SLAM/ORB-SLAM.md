@@ -16,6 +16,6 @@ grammar_cjkRuby: true
 	![enter description here](./images/1662027759223.png)
 	- 单目初始化
 	  ![enter description here](./images/1662027824693.png)
-	- 
+	- 初始化器
 	 
 
