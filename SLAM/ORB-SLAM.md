@@ -6,3 +6,4 @@ grammar_cjkRuby: true
 ---
 
 
+# 单目初始化
