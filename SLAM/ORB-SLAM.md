@@ -25,4 +25,5 @@ grammar_cjkRuby: true
 	- 初始化器
 	  ![enter description here](./images/1662035242010.png)
 - 初始化之后进行跟踪
+	- 
 
