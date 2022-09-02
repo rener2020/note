@@ -28,7 +28,8 @@ grammar_cjkRuby: true
 	  ![enter description here](./images/1662102631734.png)
 	 - 初始化相机位姿与图像特征三维点
 	  ![enter description here](./images/1662102665966.png)
-	  
+	- 地图初始化
+	  ![enter description here](./images/1662107437198.png)
 	  
 	  
 # 初始化之后进行跟踪
