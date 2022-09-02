@@ -26,8 +26,9 @@ grammar_cjkRuby: true
 	 ![enter description here](./images/1662035242010.png)
 	- 构建orb特征旋转直方图
 	  ![enter description here](./images/1662100676381.png)
-	 - 初始化相机位姿
+	 - 初始化相机位姿与图像特征三维点
 	  ![enter description here](./images/1662100724856.png)
+	  
 	  
 	  
 - 初始化之后进行跟踪
