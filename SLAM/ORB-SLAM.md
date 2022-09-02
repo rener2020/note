@@ -24,7 +24,7 @@ grammar_cjkRuby: true
 	  ![enter description here](./images/1662027824693.png)
 	- 初始化器，设置参考帧
 	 ![enter description here](./images/1662035242010.png)
-	- 
+	- 构建orb特征旋转直方图
 	  
 	  
 - 初始化之后进行跟踪
