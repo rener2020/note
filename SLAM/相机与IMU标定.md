@@ -11,4 +11,4 @@ roslaunch usb_cam usb_cam-test.launch
 rosrun camera_calibration cameracalibrator.py --size 11x8 --square 0.06 image:=/usb_cam/image_raw camera:=/usb_cam
 ```
 
-IMU使用`imu_utils`进行标定，安装`imu_utils`之前需要安装`code_utils`
+IMU使用`imu_utils`进行标定，安装`imu_utils`之前需要安装`code_utils`。
