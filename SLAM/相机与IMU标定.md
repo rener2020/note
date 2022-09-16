@@ -12,3 +12,8 @@ rosrun camera_calibration cameracalibrator.py --size 11x8 --square 0.06 image:=/
 ```
 
 IMU使用`imu_utils`进行标定，安装`imu_utils`之前需要安装`code_utils`。
+
+``` bash
+https://github.com/gaowenliang/imu_utils
+https://github.com/Praqma/code-utils
+```
