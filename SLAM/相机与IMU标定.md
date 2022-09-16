@@ -20,4 +20,9 @@ https://github.com/Praqma/code-utils
 需要修改`c++`标准和部分代码，主要是`opencv`部分和`fstream`代码
 
 随机误差
+
+``` ebnf
 imu_utils
+```
+
+确定误差
