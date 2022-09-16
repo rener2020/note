@@ -17,3 +17,5 @@ IMU使用`imu_utils`进行标定，安装`imu_utils`之前需要安装`code_util
 https://github.com/gaowenliang/imu_utils
 https://github.com/Praqma/code-utils
 ```
+需要修改`c++`标准和部分代码
+主要是`opencv`部分和`fstream`
