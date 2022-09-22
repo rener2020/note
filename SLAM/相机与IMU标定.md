@@ -36,3 +36,13 @@ topic：`/usb_cam/image_raw`
 
 
 orbslam ros
+
+``` bash
+rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vocabulary/ORBvoc.txt /mnt/share/workspace/slam/ORB_SLAM3_NOETIC/Examples/ROS/ORB_SLAM3/vio.yaml 
+```
+
+## 标定
+
+``` gradle
+rosrun kalibr kalibr_calibrate_imu_camera --target /data/clib/checkerboard.yaml  --cam /data/clib/cam.yaml --imu /data/clib/imu.yaml --bag /data/clib/stereo_imu_biaoding_2022-09-16-19-33-04.bag 
+```
