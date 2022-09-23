@@ -46,3 +46,9 @@ rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vo
 ``` bash
 rosrun kalibr kalibr_calibrate_imu_camera --target /data/clib/checkerboard.yaml  --cam /data/clib/cam.yaml --imu /data/clib/imu.yaml --bag /data/clib/stereo_imu_biaoding_2022-09-16-19-33-04.bag 
 ```
+
+## 新相机
+
+``` routeros
+catkin_make -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.7
+```
