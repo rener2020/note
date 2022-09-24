@@ -61,3 +61,4 @@ catkin_make -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-1
 
 # ZED2i相机标定
 使用*kalibr*就行相机的标定。
+## 安装标定柑工具
