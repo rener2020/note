@@ -16,7 +16,7 @@ left/camera_info, right/camera_info, left_raw/camera_info and right_raw/camera_i
 ## 单目IMU在ORBSLAM3中运行
 
 ``` bash
-rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vocabulary/ORBvoc.txt /mnt/share/workspace/slam/ORB_SLAM3_NOETIC/Examples/ROS/ORB_SLAM3/vio.yaml 
+rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vocabulary/ORBvoc.txt /mnt/share/workspace/slam/ORB_SLAM3_NOETIC/Examples/ROS/ORB_SLAM3/vio.yaml /camera/left/image_raw:=/zed2i/zed_node/left/image_rect_gray
 ```
 
 
