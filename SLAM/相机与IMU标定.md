@@ -40,6 +40,12 @@ orbslam ros
 ``` bash
 rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vocabulary/ORBvoc.txt /mnt/share/workspace/slam/ORB_SLAM3_NOETIC/Examples/ROS/ORB_SLAM3/vio.yaml 
 ```
+vins ros
+
+``` bash
+
+```
+
 
 ## 标定
 
@@ -52,3 +58,5 @@ rosrun kalibr kalibr_calibrate_imu_camera --target /data/clib/checkerboard.yaml 
 ``` routeros
 catkin_make -DCMAKE_BUILD_TYPE=Release -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.7
 ```
+
+# ZED2i相机标定
