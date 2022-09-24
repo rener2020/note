@@ -13,7 +13,12 @@ grammar_cjkRuby: true
 left/camera_info, right/camera_info, left_raw/camera_info and right_raw/camera_info
 ```
 
-## 在ORBSLAM3中运行
+## 单目IMU在ORBSLAM3中运行
+
+``` bash
+rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vocabulary/ORBvoc.txt /mnt/share/workspace/slam/ORB_SLAM3_NOETIC/Examples/ROS/ORB_SLAM3/vio.yaml 
+```
+
 
 ``` bash
 rosrun ORB_SLAM3 Stereo_Inertial Vocabulary/ORBvoc.txt \
