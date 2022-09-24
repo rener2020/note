@@ -17,8 +17,8 @@ left/camera_info, right/camera_info, left_raw/camera_info and right_raw/camera_i
 
 ``` bash
 rosrun ORB_SLAM3 Stereo_Inertial Vocabulary/ORBvoc.txt \
-           Examples/zed2/test_stereo_imu.yaml true \
-           /camera/left/image_raw:=/zed2/zed_node/left/image_rect_gray \
-           /camera/right/image_raw:=/zed2/zed_node/right/image_rect_gray \
-           /imu:=/zed2/zed_node/imu/data
+           Examples/zed2i/test_stereo_imu.yaml true \
+           /camera/left/image_raw:=/zed2i/zed_node/left/image_rect_gray \
+           /camera/right/image_raw:=/zed2i/zed_node/right/image_rect_gray \
+           /imu:=/zed2i/zed_node/imu/data
 ```
