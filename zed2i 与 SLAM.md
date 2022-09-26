@@ -27,20 +27,7 @@ P: [256.2857971191406, 0.0, 313.02838134765625, 0.0, 0.0, 256.2857971191406, 181
 ```
 
 ## IMU标定
-IMU的参数可以自行标定，也可以使用官方数据，官方数据如下：
-
-``` yaml
-#Accelerometers
-accelerometer_noise_density: 1.4e-03   #Noise density (continuous-time)
-accelerometer_random_walk:   8.0e-05   #Bias random walk
- 
-#Gyroscopes
-gyroscope_noise_density:     8.6e-05   #Noise density (continuous-time)
-gyroscope_random_walk:       2.2e-06   #Bias random walk
- 
-rostopic:                    /zed2/zed_node/imu/data_raw2      #the IMU ROS topic
-update_rate:                 200.0     #Hz (for discretization of the values above)
-```
+IMU的参数可以自行标定。ZED2i给出了矫正之后的IMU数据，先使用矫正之后的IMU数据进行实验
 
 ## 单目IMU在ORBSLAM3中运行
 
