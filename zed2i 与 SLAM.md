@@ -42,6 +42,7 @@ rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vo
 ```
 
 ### VINS
+使用以下命令：
 ``` bash
 rosrun ORB_SLAM3 Stereo_Inertial Vocabulary/ORBvoc.txt \
            Examples/zed2i/test_stereo_imu.yaml true \
