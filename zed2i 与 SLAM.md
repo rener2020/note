@@ -8,8 +8,10 @@ grammar_cjkRuby: true
 
 
 ## 相机标定
+ZED2i相机自己发布的话题中，带有原始图像输出和矫正畸变之后的图像输出。
 相机参数不用标定
 其参数可在ros话题下获取：
+
 
 ``` bash
 left/camera_info, right/camera_info, left_raw/camera_info and right_raw/camera_info
