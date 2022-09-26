@@ -31,7 +31,7 @@ IMU的参数可以自行标定。ZED2i给出了矫正之后的IMU数据，先使
 其话题为：`/zed2i/zed_node/imu/data`，IMU参数设置为`0`。
 
 ## 相机加IMU联合标定。
-相机加IMU联合标定主要标定的是相机与IMU之间的位姿转换矩阵$T$，其可以从ZED2i相机的ros话题中获取。
+相机加IMU联合标定主要标定的是相机与IMU之间的位姿转换矩阵$T$，其可以从ZED2i相机的ros话题中获取。其话题为：`/zed2i/zed_node/left_cam_imu_transform`
 
 ``` bash
 rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vocabulary/ORBvoc.txt /mnt/share/workspace/slam/ORB_SLAM3_NOETIC/Examples/ROS/ORB_SLAM3/vio.yaml /usb_cam/image_raw:=/zed2i/zed_node/left/image_rect_gray /imu:=/zed2i/zed_node/imu/data
