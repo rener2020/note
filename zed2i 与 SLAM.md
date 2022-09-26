@@ -41,7 +41,7 @@ IMU的参数可以自行标定。ZED2i给出了矫正之后的IMU数据，先使
 rosrun ORB_SLAM3 Mono_Inertial /home/hz/share/workspace/slam/ORB_SLAM3_NOETIC/Vocabulary/ORBvoc.txt /mnt/share/workspace/slam/ORB_SLAM3_NOETIC/Examples/ROS/ORB_SLAM3/vio.yaml /usb_cam/image_raw:=/zed2i/zed_node/left/image_rect_gray /imu:=/zed2i/zed_node/imu/data
 ```
 
-
+### ORBSLAM3
 ``` bash
 rosrun ORB_SLAM3 Stereo_Inertial Vocabulary/ORBvoc.txt \
            Examples/zed2i/test_stereo_imu.yaml true \
