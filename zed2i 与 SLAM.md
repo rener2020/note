@@ -33,6 +33,8 @@ IMU的参数可以自行标定。ZED2i给出了矫正之后的IMU数据，先使
 ## 相机加IMU联合标定。
 相机加IMU联合标定主要标定的是相机与IMU之间的位姿转换矩阵$T$，其可以从ZED2i相机的ros话题中获取。其话题为：`/zed2i/zed_node/left_cam_imu_transform`
 
+参数为
+
 
 ## 运行SLAM 
 ### ORBSLAM3
