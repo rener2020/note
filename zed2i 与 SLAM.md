@@ -8,10 +8,11 @@ grammar_cjkRuby: true
 
 
 ## 相机标定
-ZED2i相机自己发布的话题中，带有原始图像输出和矫正畸变之后的图像输出。
+ZED2i相机自己发布的话题中，带有原始图像输出和矫正畸变之后的图像输出。以左目相机为例。
 - 原始图像话题：`/zed2i/zed_node/left_raw/image_raw_gray`
 - 矫正畸变之后话题：`/zed2i/zed_node/left/image_rect_gray`
-相机参数不用标定
+其相机参数可以不用标定，我们使用矫正畸变之后的图像输出，其相机参数话题为：
+
 其参数可在ros话题下获取：
 
 
