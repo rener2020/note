@@ -29,7 +29,7 @@ P: [256.2857971191406, 0.0, 313.02838134765625, 0.0, 0.0, 256.2857971191406, 181
 ## IMU标定
 IMU的参数可以自行标定，也可以使用官方数据，官方数据如下：
 
-``` dts
+``` xml
 #Accelerometers
 accelerometer_noise_density: 1.4e-03   #Noise density (continuous-time)
 accelerometer_random_walk:   8.0e-05   #Bias random walk
