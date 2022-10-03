@@ -184,6 +184,10 @@ rosbag record -O stereo_calibra.bag /left /right /zed2i/zed_node/imu/data_raw
  rosbag record -o stmono_imu_clib.bag /zed2i/zed_node/left/image_rect_gray /zed2i/zed_node/right/image_rect_gray /zed2i/zed_node/imu/data_raw
 ```
 
+先标定双目
+
+
+
 ## 搭建kalibr环境
 
 ``` bash
