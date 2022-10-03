@@ -38,7 +38,7 @@ projection
 ## IMU标定
 https://blog.csdn.net/weixin_43247057/article/details/101695333
 
-``` xml
+``` yaml
 %YAML:1.0
 ---
 type: IMU
