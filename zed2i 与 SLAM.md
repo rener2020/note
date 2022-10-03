@@ -171,6 +171,11 @@ rosrun topic_tools throttle messages /zed2i/zed_node/left/image_rect_gray 4.0 /l
 rosrun topic_tools throttle messages /zed2i/zed_node/right/image_rect_gray 4.0 /right
 ```
 
+录制数据
+
+``` bash
+rosbag record -O stereo_calibra.bag /left /right /zed2i/zed_node/imu/data_raw
+```
 
 每个轴做个3、4次，然后在标定板前做平移，上下、左右、前后。做完之后空中画几个８字
 记录数据：
