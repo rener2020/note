@@ -5,82 +5,7 @@ renderNumberedHeading: true
 grammar_cjkRuby: true
 ---
 
-## 相机标定
-https://blog.csdn.net/weixin_42905141/article/details/100024572
-``` bash
-width
-640
 
-height
-360
-
-[narrow_stereo]
-
-camera matrix
-252.598114 0.000000 310.811093
-0.000000 254.370488 165.901747
-0.000000 0.000000 1.000000
-
-distortion
--0.009218 0.007314 -0.001107 -0.000942 0.000000
-
-rectification
-1.000000 0.000000 0.000000
-0.000000 1.000000 0.000000
-0.000000 0.000000 1.000000
-
-projection
-255.234985 0.000000 309.743269 0.000000
-0.000000 256.760559 164.891553 0.000000
-0.000000 0.000000 1.000000 0.000000
-
-```
-## IMU标定
-https://blog.csdn.net/weixin_43247057/article/details/101695333
-
-``` yaml
-%YAML:1.0
----
-type: IMU
-name: data_raw
-Gyr:
-   unit: " rad/s"
-   avg-axis:
-      gyr_n: 1.2996384980293932e-03
-      gyr_w: 4.1408494335749790e-06
-   x-axis:
-      gyr_n: 1.4040886721777006e-03
-      gyr_w: 6.1436879299344365e-06
-   y-axis:
-      gyr_n: 1.2338859937314124e-03
-      gyr_w: 4.0329532743445382e-06
-   z-axis:
-      gyr_n: 1.2609408281790669e-03
-      gyr_w: 2.2459070964459627e-06
-Acc:
-   unit: " m/s^2"
-   avg-axis:
-      acc_n: 1.4575366483065367e-02
-      acc_w: 4.5523022034636923e-04
-   x-axis:
-      acc_n: 1.6237479516608512e-02
-      acc_w: 4.4995436093994310e-04
-   y-axis:
-      acc_n: 1.1876031528164025e-02
-      acc_w: 2.9518282461217987e-04
-   z-axis:
-      acc_n: 1.5612588404423563e-02
-      acc_w: 6.2055347548698467e-04
-
-```
-
-## 联合标定
-每个轴做个3、4次，然后在标定板前做平移，上下、左右、前后。做完之后空中画几个８字
-记录数据：
-
-``` bash
- rosbag record -o stmono_imu_clib.bag /zed2i/zed_node/left/image_rect_gray /zed2i/zed_node/right/image_rect_gray /zed2i/zed_node/imu/data_raw
-```
 
 
 
@@ -165,4 +90,82 @@ rosrun ORB_SLAM3 Stereo_Inertial Vocabulary/ORBvoc.txt \
            /camera/left/image_raw:=/zed2i/zed_node/left/image_rect_gray \
            /camera/right/image_raw:=/zed2i/zed_node/right/image_rect_gray \
            /imu:=/zed2i/zed_node/imu/data
+```
+
+# 手动标定
+## 相机标定
+https://blog.csdn.net/weixin_42905141/article/details/100024572
+``` bash
+width
+640
+
+height
+360
+
+[narrow_stereo]
+
+camera matrix
+252.598114 0.000000 310.811093
+0.000000 254.370488 165.901747
+0.000000 0.000000 1.000000
+
+distortion
+-0.009218 0.007314 -0.001107 -0.000942 0.000000
+
+rectification
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 0.000000 1.000000
+
+projection
+255.234985 0.000000 309.743269 0.000000
+0.000000 256.760559 164.891553 0.000000
+0.000000 0.000000 1.000000 0.000000
+
+```
+## IMU标定
+https://blog.csdn.net/weixin_43247057/article/details/101695333
+
+``` yaml
+%YAML:1.0
+---
+type: IMU
+name: data_raw
+Gyr:
+   unit: " rad/s"
+   avg-axis:
+      gyr_n: 1.2996384980293932e-03
+      gyr_w: 4.1408494335749790e-06
+   x-axis:
+      gyr_n: 1.4040886721777006e-03
+      gyr_w: 6.1436879299344365e-06
+   y-axis:
+      gyr_n: 1.2338859937314124e-03
+      gyr_w: 4.0329532743445382e-06
+   z-axis:
+      gyr_n: 1.2609408281790669e-03
+      gyr_w: 2.2459070964459627e-06
+Acc:
+   unit: " m/s^2"
+   avg-axis:
+      acc_n: 1.4575366483065367e-02
+      acc_w: 4.5523022034636923e-04
+   x-axis:
+      acc_n: 1.6237479516608512e-02
+      acc_w: 4.4995436093994310e-04
+   y-axis:
+      acc_n: 1.1876031528164025e-02
+      acc_w: 2.9518282461217987e-04
+   z-axis:
+      acc_n: 1.5612588404423563e-02
+      acc_w: 6.2055347548698467e-04
+
+```
+
+## 联合标定
+每个轴做个3、4次，然后在标定板前做平移，上下、左右、前后。做完之后空中画几个８字
+记录数据：
+
+``` bash
+ rosbag record -o stmono_imu_clib.bag /zed2i/zed_node/left/image_rect_gray /zed2i/zed_node/right/image_rect_gray /zed2i/zed_node/imu/data_raw
 ```
