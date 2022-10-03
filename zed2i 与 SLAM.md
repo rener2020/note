@@ -164,7 +164,10 @@ Acc:
 
 ## 联合标定，数据录制
 降低图像数据频率：
+
+``` bash
 rosrun topic_tools throttle /zed2i/zed_node/left/image_rect_gray 4.0 /left
+```
 
 
 每个轴做个3、4次，然后在标定板前做平移，上下、左右、前后。做完之后空中画几个８字
