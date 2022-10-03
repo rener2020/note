@@ -180,3 +180,7 @@ docker pull stereolabs/kalibr
 docker run -itd -v /home/hz/share/workspace/slam/clib/:/data --name kalibr stereolabs/kalibr bash
 ```
 
+标定
+``` bash
+kalibr_calibrate_imu_camera --target zed2i/kalibr/board.yaml --cam zed2i/kalibr/cam_left.yaml --imu zed2i/kalibr/imu.yaml --bag data/stmono_imu_clib_2022-10-03-13-30-15.bag 
+```
