@@ -171,3 +171,7 @@ Acc:
 ```
 
 ## 搭建kalibr环境
+
+``` bash
+docker pull stereolabs/kalibr
+```
