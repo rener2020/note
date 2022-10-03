@@ -175,3 +175,5 @@ Acc:
 ``` bash
 docker pull stereolabs/kalibr
 ```
+
+docker run -itd -v /home/data:/data --name kalibr stereolabs/kalibr bash
