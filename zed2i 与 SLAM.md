@@ -169,3 +169,5 @@ Acc:
 ``` bash
  rosbag record -o stmono_imu_clib.bag /zed2i/zed_node/left/image_rect_gray /zed2i/zed_node/right/image_rect_gray /zed2i/zed_node/imu/data_raw
 ```
+
+## 搭建kalibr环境
