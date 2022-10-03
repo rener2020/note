@@ -74,6 +74,13 @@ Acc:
 
 ```
 
+## 联合标定
+记录数据：
+
+``` bash
+ rosbag record -o stmono_imu_clib.bag /zed2i/zed_node/left/image_rect_gray /zed2i/zed_node/right/image_rect_gray /zed2i/zed_node/imu/data_raw
+```
+
 ## 相机标定
 ZED2i相机自己发布的话题中，带有原始图像输出和矫正畸变之后的图像输出。以左目相机为例：
 - 原始图像话题：`/zed2i/zed_node/left_raw/image_raw_gray`
