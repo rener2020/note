@@ -167,7 +167,7 @@ Acc:
 
 ``` bash
 rosrun topic_tools throttle /zed2i/zed_node/left/image_rect_gray 4.0 /left
-rosrun topic_tools throttle /zed2i/zed_node/right/image_rect_gray 4.0 /left
+rosrun topic_tools throttle /zed2i/zed_node/right/image_rect_gray 4.0 /right
 ```
 
 
