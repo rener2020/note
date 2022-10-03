@@ -189,6 +189,10 @@ rosbag record -O stereo_calibra.bag /left /right /zed2i/zed_node/imu/data_raw
 ``` bash
 kalibr_calibrate_cameras --target zed2i/kalibr/board11x8-20.yaml --topics /left /right --models pinhole-equi pinhole-equi  --bag data/stereo_calibra.bag
 ```
+![enter description here](./images/1664782427529.png)
+
+再联合标定IMU
+
 
 
 ## 搭建kalibr环境
