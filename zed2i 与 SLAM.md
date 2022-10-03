@@ -177,6 +177,8 @@ docker pull stereolabs/kalibr
 ```
 运行容器
 ``` bash
+xhost +local:root
+
 docker run -itd -e "DISPLAY" -e "QT_X11_NO_MITSHM=1" -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" -v /home/hz/share/workspace/slam/clib/:/data --name kalibr stereolabs/kalibr bash
 ```
 
