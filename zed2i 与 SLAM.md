@@ -38,6 +38,42 @@ projection
 ## IMU标定
 https://blog.csdn.net/weixin_43247057/article/details/101695333
 
+``` xml
+%YAML:1.0
+---
+type: IMU
+name: data_raw
+Gyr:
+   unit: " rad/s"
+   avg-axis:
+      gyr_n: 1.2996384980293932e-03
+      gyr_w: 4.1408494335749790e-06
+   x-axis:
+      gyr_n: 1.4040886721777006e-03
+      gyr_w: 6.1436879299344365e-06
+   y-axis:
+      gyr_n: 1.2338859937314124e-03
+      gyr_w: 4.0329532743445382e-06
+   z-axis:
+      gyr_n: 1.2609408281790669e-03
+      gyr_w: 2.2459070964459627e-06
+Acc:
+   unit: " m/s^2"
+   avg-axis:
+      acc_n: 1.4575366483065367e-02
+      acc_w: 4.5523022034636923e-04
+   x-axis:
+      acc_n: 1.6237479516608512e-02
+      acc_w: 4.4995436093994310e-04
+   y-axis:
+      acc_n: 1.1876031528164025e-02
+      acc_w: 2.9518282461217987e-04
+   z-axis:
+      acc_n: 1.5612588404423563e-02
+      acc_w: 6.2055347548698467e-04
+
+```
+
 ## 相机标定
 ZED2i相机自己发布的话题中，带有原始图像输出和矫正畸变之后的图像输出。以左目相机为例：
 - 原始图像话题：`/zed2i/zed_node/left_raw/image_raw_gray`
