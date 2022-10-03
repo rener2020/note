@@ -177,6 +177,6 @@ docker pull stereolabs/kalibr
 ```
 
 ``` bash
-docker run -itd -v /home/data:/data --name kalibr stereolabs/kalibr bash
+docker run -itd -v /home/hz/share/workspace/slam/clib/:/data --name kalibr stereolabs/kalibr bash
 ```
 
