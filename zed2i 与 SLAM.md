@@ -162,7 +162,11 @@ Acc:
 
 ```
 
-## 联合标定
+## 联合标定，数据录制
+降低图像数据频率：
+rosrun topic_tools throttle messages /mynteye/left/image_raw 4.0 /left
+
+
 每个轴做个3、4次，然后在标定板前做平移，上下、左右、前后。做完之后空中画几个８字
 记录数据：
 
