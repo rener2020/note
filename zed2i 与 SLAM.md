@@ -194,7 +194,7 @@ kalibr_calibrate_cameras --target zed2i/kalibr/board11x8-20.yaml --topics /left 
 再联合标定IMU
 
 ``` bash
-kalibr_calibrate_imu_camera --target april_6x6.yaml --cam camchain.yaml --imu imu_adis16448.yaml --bag /home/dji/db/stero_dji_kalibr/stereo/imu_stereo_subset.bag --bag-from-to 5 45
+kalibr_calibrate_imu_camera --target april_6x6.yaml --cam camchain.yaml --imu zed2i/kalibr/imu.yaml --bag /home/dji/db/stero_dji_kalibr/stereo/imu_stereo_subset.bag --bag-from-to 5 45
 ```
 
 
