@@ -125,6 +125,10 @@ projection
 ```
 ## IMU标定
 https://blog.csdn.net/weixin_43247057/article/details/101695333
+记录数据
+``` bash
+rosbag record /zed2i/zed_node/imu/data -O imu.bag
+```
 
 修复ros包
 ``` bash
