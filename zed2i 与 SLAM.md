@@ -131,6 +131,8 @@ https://blog.csdn.net/weixin_43247057/article/details/101695333
 rosbag reindex imu.bag.active
 ```
 
+
+
 ``` bash
 rosbag record /zed2i/zed_node/imu/data -O imu.bag
 ```
