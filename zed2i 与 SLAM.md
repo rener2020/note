@@ -132,6 +132,11 @@ rosbag reindex imu.bag.active
 rosbag fix imu.bag.active imu.bag
 ```
 
+分割ros包
+
+``` bash
+
+```
 
 
 ``` bash
