@@ -126,6 +126,7 @@ projection
 ## IMU标定
 https://blog.csdn.net/weixin_43247057/article/details/101695333
 
+修复ros包
 ``` bash
 rosbag reindex imu.bag.active
 ```
