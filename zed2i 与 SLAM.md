@@ -135,7 +135,7 @@ rosbag fix imu.bag.active imu.bag
 分割ros包
 
 ``` bash
-
+rosbag filter imu.bag imu_split.bag  "t.to_sec() > 10200 and t.to_sec() < 18000"
 ```
 
 
