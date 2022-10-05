@@ -139,10 +139,6 @@ rosbag filter imu.bag imu_split.bag  "t.to_sec() > 10200 and t.to_sec() < 18000"
 ```
 
 
-``` bash
-rosbag record /zed2i/zed_node/imu/data -O imu.bag
-```
-
 ``` yaml
 %YAML:1.0
 ---
