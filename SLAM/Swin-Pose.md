@@ -7,6 +7,6 @@ grammar_cjkRuby: true
 
 创建docker镜像
 
-``` css
+``` bash
 docker run --gpus all -it --rm nvcr.io/nvidia/pytorch:xx.xx-py3
 ```
