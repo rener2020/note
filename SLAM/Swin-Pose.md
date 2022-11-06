@@ -6,3 +6,4 @@ grammar_cjkRuby: true
 ---
 
 
+docker run --gpus all -it --rm nvcr.io/nvidia/pytorch:xx.xx-py3
