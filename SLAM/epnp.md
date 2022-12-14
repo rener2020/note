@@ -17,3 +17,4 @@ grammar_cjkRuby: true
 ![enter description here](./images/1670825774976.png)
 
 
+$p(y|X)=\frac{p(X|y)p(y)}{p(X)}$
