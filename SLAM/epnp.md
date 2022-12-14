@@ -9,6 +9,7 @@ grammar_cjkRuby: true
 
 # 加权重投影误差
 ![enter description here](./images/1670825728757.png)
+
 加权重投影误差计算的是3d点投影到2d点的像素误差的加权平均和，其本质是像素误差。
 
 
