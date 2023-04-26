@@ -6,9 +6,14 @@ emoji: "😙"
 grammar_cjkRuby: true
 ---
 
+https://www.reddit.com/r/ROS/comments/uj1auq/set_up_kinect_v2_with_ros_noetic/
 
-欢迎使用 **{小书匠}(xiaoshujiang)笔记软件**，您可以通过 `小书匠主按钮>模板` 里的模板管理来改变新建文章的内容。
+首先安装这个
+https://github.com/OpenKinect/libfreenect2#linux
 
-----------
+You have to install those packages: https://github.com/OpenKinect/libfreenect2#linux https://github.com/paul-shuvo/iai_kinect2_opencv4#install <- There's an error in the instructions, replace git clone https://github.com/code-iai/iai_kinect2.git with git clone https://github.com/paul-shuvo/iai_kinect2_opencv4.git!
 
-小书匠是一款本地优先，去中心化，分布式，支持选择性同步的全平台覆盖笔记软件。
+
+编译失败
+ #error PCL requires C++14 or above
+https://blog.csdn.net/handily_1/article/details/122421305
