@@ -22,4 +22,4 @@ libqglviewer-dev-qt5
 error 1. 
 :/home/hz/install/g2o/g2o/stuff/logger.cpp:32:10: fatal error: spdlog/cfg/env.h: No such file or directory
 手动安装
-git clone https://github.com/gabime/spdlog.git
+https://github.com/gabime/spdlog.git
