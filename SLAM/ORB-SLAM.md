@@ -10,3 +10,4 @@ ORBSLAM3
   ![enter description here](./images/1697531249235.png)
   
   
+**视觉和IMU如何粗对齐？**
