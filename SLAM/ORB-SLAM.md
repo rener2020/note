@@ -85,6 +85,26 @@ loop2. 进行一次IMU预积分 存入第二个图像帧
 H矩阵：两点投影距离
 F矩阵：对极约束 $th - ||x^{'}Fx||^2/\sigma^2$
 恢复R、T：3d点应在相机前方
-
-
+ 
+初始化：只是有初值，不一定准
    
+   
+ ![enter description here](./images/1697685362883.png)
+ ### TRACKING 中的匹配
+ 
+ 
+ 
+ ### LOCAL MAPPING中的匹配
+ - 构造新的地图点
+ - 融合地图点
+
+![enter description here](./images/1697685504471.png)
+
+### LOCAL CLOSING 中的匹配
+![enter description here](./images/1697685527462.png)
+
+
+### 匹配方法
+
+- DLT直接线性变换：最主要作用不是用于求解变换，而是实现单目2D到3D的三角化过程
+- 
