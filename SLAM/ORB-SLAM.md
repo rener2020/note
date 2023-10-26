@@ -362,8 +362,221 @@ $$
 5. 若是IMU模式，计算IMU预积分
 6. 将新生成的关键帧插入局部建图线程中
 
+# 景深
+由于单目情况下对场景中地图点的距离值估计不准确，以此需要估计场景深度以对地图点位置进行约束。一般在单目时，采用平均场景上年度的概念，也就是地图点的深度中值，用地图点的深度中值对所有的地图点进行统计，保证地图点的场景深度一致。
+### 作用
+1. 初始化构建关键帧和地图点时，对新构建的初始地图点进行深度图统一/归一
+2. 为每个新关键帧构造新地图点时，使用场景深度和光心之间的基线之比来判断是否两个关键帧距离太近
 
+共视图：与当前关键帧有共同观测的关键帧所组成的图
+- 网状图
+- 节点：关键帧
+- 边：链接关系
+- 权重：共视程度（共视关键帧与当前关键帧共同看到的地图点的数目）
+
+1. 遍历当前关键帧的所有地图点，获取每个地图点的观测，遍历观测（观测到此地图点的关键帧和对应的特征点，添加观测情况到向量KFcounter）
+2. 筛选关键帧，设置阈值为15，选取共视程度超过阈值的关键帧，为选取的关键帧添加链接
+3. 按照共视程度对选中的关键帧进行排序，依次作为当前关键帧的共视图
+4. 若此共视图是第一次生成，则初始化当前关键帧共视程度最大的关键帧为父节点，并为父节点添加链接
+
+主要的作用：扩大搜索范围
+- 构造当前图像帧的局部关键帧，利用关键帧的共视关键帧扩大局部关键帧的搜索范围，从而形成更多局部地图点，提高当前图像帧和局部地图点2D-3D匹配数量，优化当前图像帧的位姿
+- 为局部建图线程中的关键帧构造更多的地图点，需要获取当前关键帧的共视关键帧，以及共视关键帧的共视关键帧以寻找更多匹配，构造更多的可以长期存储的地图点
+- 为防止地图点冗余，融合当前关键帧和周围共视关键帧中相同的地图点，需要寻找一级和二级共视关键帧
+- 利用选取的候选关键帧判断是否发生回环或者融合，获取更多的共视关键帧也可以提高判断的准确性
+
+### 关键帧生成树
+1. 作为一级关键帧（当前关键帧的共视关键帧）的二级关键帧（父节点，子节点），扩大搜索范围
+2. 若当前关键帧是坏的关键帧，可以暂时用父关键帧代替当前关键帧
+3. 回环线程中，构造本质图和进行地图融合过程
+
+### 坏关键帧
+- 删除此关键帧与共视关键帧连接关系
+- 删除地图点对应观测
+- 清空其共视图
+- 更新生成树，将当前关键帧的孩子节点赋予新的父节点
+- 清除此关键帧的父节点对应的当前关键帧的孩子节点
+- 地图中删除此关键帧
+-  关键帧数据库中删除此关键帧
+
+### 关键帧数据库类
+KeyFrameDatabase
+作用：利用词袋数据，在已有关键帧数据库中寻找与当前图像帧最接近的关键帧
+- 重定位中：寻找最近的关键帧
+- 回环检测中：检测当前关键帧需要和哪些关键帧建立回环校正的边 
+
+### 本质图
+介于共视图与生成树之间的一种图，主要用于回环检测过程中，利用相似变换来校正尺度漂移，从而实现全局轨迹的优化
 # SLAM整体定位精度 
 1. 地图点位置估计精度：由于图像帧的位姿估计，不是依赖与2D-2D匹配，而是对地图点进行跟踪，即3D-2D匹配，因此3D点位置的精度会严重影响匹配结果，从而影响图像帧的位姿估计结果
 2. 关键帧的位姿估计精度：关键帧是被长期存储在系统中的，包括后期的回环检测和重定位等操作都很依赖关键帧的位姿精度，且关键帧是恢复更多3D地图点的关键，与地图点相辅相成，因此对整体轨迹估计的影响很重要。
+
+# IMU
+- IMU输出
+$$
+\begin{cases}
+\omega:\omega_x,\omega_y,\omega_z\\
+a:a_x,a_y,a_z
+\end{cases}
+$$
+- 运动：$\dot{x}=f(x)$
+- 观测：$z=g(x)+n$
+
+$$
+\begin{cases}
+\dot{R}=R(w)^{\text{^}}=R\exp(w) \\
+\dot{P}=V\\
+\dot{V}=a
+\end{cases}
+$$
+
+
+测量：$a_m$
+真值：$a$
+偏置：$b$
+噪声：$n$
+
+- 积分
+
+$$
+\begin{cases}
+R(t+\Delta{}t)=R(t)\int_{t}^{t+\Delta{}t}\exp(\omega_\tau)d\tau \\
+V(t+\Delta{}t)=V(t)+\int_{t}^{t+\Delta{}t}a_\tau{}d\tau \\
+P(t+\Delta{}t)=P(t)+\int_{t}^{t+\Delta{}t}[V(t)+\int_{t}^{t+\Delta{}t}a_\tau{}]d\tau \\
+\end{cases}
+
+$$
+- 离散化 定值$a ,\omega$
+
+$$
+\begin{cases}
+R(t+\Delta{}t) = R_t\exp(\omega_t\Delta_t)\\
+V(t+\Delta{}t)=V(t)+a(t)\Delta{}t\\
+P(t+\Delta{}t)=P(t)+V(t)\Delta{}t+\frac{1}{2}a(t)\Delta{}t^2
+\end{cases}
+$$
+- IMU测量模型
+
+$$
+\begin{cases}
+\hat{\omega}=\omega+b+\eta \\
+{}^b\hat{a}=R_w^b({}^wa-{}^wg)+b+\eta 
+\end{cases}
+$$
+
+ 角度预积分：
+ $$
+\begin{align}
+ & R(t+\Delta{}t)=R(t)\exp[\hat{\omega}(t)-b_t-n_t]\Delta{}t \quad \to\\
+ & R(t+\Delta{}t+\Delta{}t)=R(t+\Delta{}t)\exp[\hat{\omega}(t+\Delta{}t)-b_{t+\Delta{}t}-n_{{t+\Delta{}t}}]\Delta{}t  \quad \to\\
+ & R(t+\Delta{}t+\Delta{}t)=R(t)\exp[\hat{\omega}(t)-b_t-n_t]\Delta{}t\exp[\hat{\omega}(t+\Delta{}t)-b_{t+\Delta{}t}-n_{{t+\Delta{}t}}]\Delta{}t \quad \to\\
+ & R_j = R_i\prod\limits_{k=i}^{j-1}\exp(\hat{\omega}_{k}-b_k-\eta_k)\Delta{}t
+\end{align}
+ $$
+速度预积分
+$$
+\begin{align}
+&V(t+\Delta{}t)=V(t)+[R^w_b(t)({}^b\hat{a}_t-b_t-\eta_t)+{}^wg]\Delta{}t \quad \to\\
+&V_j=V_i + {}^wg\Delta{}t_{ij} + \sum\limits_{k=i}^{j-1}R^w_b(k)({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t
+\end{align}
+$$
+
+位置预积分：
+$$
+\begin{align}
+P_j=P_i+\sum\limits_{k=i}^{j-1}V_k\Delta{}t+\frac{1}{2}{}^wg\Delta{}t^2+\frac{1}{2}R^w_b(k)({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t^2
+\end{align}
+$$
+相对运动量：
+$$
+\Delta{}R_{ij}=R_i^TR_j=\prod\limits_{k=i}^{j-1}\exp(\hat{\omega}_k-b_k-\eta_k)\Delta{}t
+$$
+需求：
+- 不依赖$i$时刻状态
+- 不依赖重力
+
+$\to$构造在初始时刻IMU坐标系下的预积分
+$$
+\begin{align}
+\Delta{}V_{ij}&=R^b_w(i)(V_j-V_i-{}^wg\Delta{}t_{ij})\\
+&=R^b_w(i)\sum\limits_{k=i}^{j-1}R_b^w(k)({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t\\
+&=\sum\limits_{k=i}^{j-1}\Delta{}{}R_i^k({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t\\
+\end{align}
+$$
+$$
+\begin{align}
+\Delta{}P_{ij}&=R^b_w(i)(P_j-P_i-V_i\Delta{}t_{ij}-\frac{1}{2}g\Delta{}t_{ij}^2)\\
+&=\sum\limits_{k=i}^{j-1}\Delta{}V_{ik}\Delta{t}+\frac{1}{2}R_i^k({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t^2
+\end{align}
+$$
+预积分：
+$$
+\begin{align}
+& \Delta{}R_{ij}=\prod\limits_{k=i}^{j-1}\exp(\hat{\omega}_k-b_k-\eta_k)\Delta{}t \\
+& \Delta{}V_{ij}=\sum\limits_{k=i}^{j-1}\Delta{}{}R_i^k({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t\\
+& \Delta{}P_{ij}=\sum\limits_{k=i}^{j-1}\Delta{}V_{ik}\Delta{t}+\frac{1}{2}R_i^k({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t^2
+\end{align}
+$$
+分离噪声：
+- 偏置不变
+一阶近似公式:$\exp(\phi+\delta{}\phi)\approx\exp(\phi)\exp(J_r(\phi)\delta\phi)$
+Adjoint性质:$\exp(\phi)R=R\exp(R^T\phi)$
+$$
+\begin{align}
+\Delta{}R_{ij}&=\prod\limits_{k=i}^{j-1}\exp(\hat{\omega}_k-b_k-\eta_k)\Delta{}t\\
+&\approx\prod\limits_{k=i}^{j-1}\exp(\hat{\omega}_k-b_k)\Delta{}t\prod\limits_{k=i}^{j-1}\exp(-\Delta\hat{R}_{k+1,j}^{T}J_r^k\eta_k\Delta{}t)\\
+&\triangleq\Delta\hat{R}_{ij}\exp(-\delta\phi_{ij})
+\end{align}
+$$
+
+$$
+\begin{align}
+\Delta{}V_{ij}&\triangleq\sum\limits_{k=i}^{j-1}\Delta{}{}R_i^k({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t\\
+&\triangleq \sum\limits_{k=i}^{j-1}\Delta{}{}\hat{R}_i^k({}^b\hat{a}_k-b_k)\Delta{}t+\sum\limits_{k=i}^{j-1}[\cdots]\\
+&\triangleq \Delta\hat{V}_{ij}-\delta{}V_{ij}
+\end{align}
+$$
+$$
+\begin{align}
+\Delta{}P_{ij}&=\sum\limits_{k=i}^{j-1}\Delta{}V_{ik}\Delta{t}+\frac{1}{2}R_i^k({}^b\hat{a}_k-b_k-\eta_k)\Delta{}t^2\\
+&\triangleq \sum\limits_{k=i}^{j-1}[\Delta{}\hat{V}_{ik}\Delta{}t+\frac{1}{2}\Delta{}\hat{R}_{ik}(\hat{a}_k-b_k)\Delta{}t^2] + \sum\limits_{1}^{2}[\cdots]\\
+&= \Delta{}\hat{P}_{ij}-\delta{}P_{ij}
+\end{align}
+$$
+有：
+$$
+\begin{align}
+&\Delta{}\hat{R}_{ij}\approx\Delta{}R_{ij}\exp(\delta\phi_{ij}) =R_i^TR_j\exp(\delta\phi_{ij})\\
+&\Delta{}\hat{V}_{ij}\approx R^b_w(i)(V_j-V_i-{}^wg\Delta{}t_{ij})+\delta{}V_{ij}\\
+&\Delta{}P_{ij}\approx R^b_w(i)(P_j-P_i-V_i\Delta{}t_{ij}-\frac{1}{2}g\Delta{}t_{ij}^2)+\delta{}P_{ij}\\
+\end{align}
+$$
+### IMU优化视觉SLAM
+- 单目尺度优化：尺度的大小主要与相机的平移运动有关，IMU可以结算出PRV，以此可以利用IMU估计得到的平移优化纯视觉的平移尺度
+$$P_{imu}=sP_{camera}+R_c^it_i^c$$
+- 视觉惯性联合优化：IMU可以利用输出的加速度和角速度计算出PRV，但由于噪声和偏置的不确定性，会导致预积分存在估计误差，IMU预积分的估计误差和视觉的投影误差等进行融合，可以实现同时优化载体位姿和地图点位置
+
+$$\min_{X}\left\{\left\|r_{p}-H_{p}X\right\|^{2}+\sum_{k\in B}\left\|r_{B}\left(\hat{z}_{b_{k+1}}^{b_{k}},X\right)\right\|_{P_{b_{k+1}}^{b_{k}}}^{2}+\sum_{(l,j)\in C}\left\|r_{C}\left(\hat{z}_{l}^{c_{j}},X\right)\right\|_{P_{l}^{c_{j}}}^{2}\right\}$$
+- 视觉：确定载体初始位姿，初始关键帧以及初始空间点的位置
+- IMU：估计IMU的偏置，异构传感器的时延、重力方向对准’
+- VI：传感器旋转平移外参、单目尺度因子
+
+-IMU部分
+陀螺仪测得角速度：
+$$\widetilde{\omega_{m}}=\omega_{t}+\boxed{b_{\omega}}+n_{\omega}$$
+加速度计测得的线加速度：
+$$\begin{aligned}\widetilde{a_{m}}=&a_{t}+b_{a}+n_{a}\\=&\boxed{R_{W}^{B}}(a_{wt}-a_{wg})+\boxed{b_{a}}+n_{a}\end{aligned}$$
+**零飘、重力方向**
+$$\mathbf{r}_{\mathcal{I}_{i,i+1}}=[\mathbf{r}_{\Delta\mathrm{R}_{i,i+1}},\mathbf{r}_{\Delta\mathrm{v}_{i,i+1}},\mathbf{r}_{\Delta\mathrm{p}_{i,i+1}}]$$
+
+$$
+\begin{aligned}
+&\mathbf{r}_{\Delta\mathbf{R}i,i+1} =\mathrm{Log}\left(\Delta\mathbf{R}_{i,i+1}^\mathrm{T}\mathbf{R}_{i}^\mathrm{T}\mathbf{R}_{i+1}\right)  \\
+&\mathbf{r}_{\Delta\mathbf{v}_{i,i+1}} =\mathbf{R}_{i}^{\mathrm{T}}\left(\mathbf{v}_{i+1}-\mathbf{v}_{i}-\mathbf{g}\Delta t_{i,i+1}\right)-\Delta\mathbf{v}_{i,i+1}  \\
+&\mathbf{r}_{\Delta_{\mathrm{P}i,i+1}} =\mathbf{R}_{i}^{\mathrm{T}}\left(\mathbf{p}_{j}-\mathbf{p}_{i}-\mathbf{v}_{i}\Delta t_{i,i+1}-\frac{1}{2}\mathbf{g}\Delta t^{2}\right)-\Delta\mathbf{p}_{i,i+1} 
+\end{aligned}
+$$
+- 最小化两个关键帧之间的IMU预积分残差
+- 计算残差方程对$b_g,b_a,g,v$以及尺度$s$的一阶雅可比u矩阵
+- 实现IMU参数的迭代优化
 
