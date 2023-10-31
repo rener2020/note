@@ -15,5 +15,10 @@ ORB_SLAM3::System SLAM(argv[1],argv[2],ORB_SLAM3::System::IMU_MONOCULAR, true);
 之后进行系统追踪
 
 ``` cpp?linenums
+for (seq = 0; seq<num_seq; seq++)
+{
+	SLAM.TrackMonocular(im,tframe,vImuMeas);
+}
 ```
+
 
