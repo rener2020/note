@@ -22,4 +22,5 @@ for (seq = 0; seq<num_seq; seq++)
 }
 ```
 
-在`SLAM.TrackMonocular`中，先存储`IMU`数据，之后
+在`SLAM.TrackMonocular`中，先存储`IMU`数据，之后通过`mpTracker->GrabImageMonocular`函数计算当前相机位姿。
+
