@@ -6,8 +6,14 @@ grammar_cjkRuby: true
 ---
 
 
-欢迎使用 **{小书匠}(xiaoshujiang)笔记软件**，您可以通过 `小书匠主按钮>模板` 里的模板管理来改变新建文章的内容。
+以`/Examples/Monocular-Inertial/mono_inertial_euroc.cc`为例，在`main`函数中，系统现将数据载入之后，初始化SLAM类。
 
-----------
+``` cpp?linenums
+ORB_SLAM3::System SLAM(argv[1],argv[2],ORB_SLAM3::System::IMU_MONOCULAR, true);
+```
 
-小书匠是一款本地优先，去中心化，分布式，支持选择性同步的全平台覆盖笔记软件。
+之后进行系统追踪
+
+``` cpp?linenums
+```
+
