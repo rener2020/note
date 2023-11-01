@@ -22,10 +22,10 @@ for (seq = 0; seq<num_seq; seq++)
 }
 ```
 
-在`SLAM.TrackMonocular`中，先存储`IMU`数据，之后通过`mpTracker->GrabImageMonocular`函数计算当前相机位姿。具体而言，程序会以传入的图像**构建图像帧**，在构建图像帧的过程中会提取**ORB特征点**等信息。之后使用`Track()`函数进行跟踪。
+在`SLAM.TrackMonocular`中，先存储`IMU`数据，之后通过`mpTracker->GrabImageMonocular`函数计算当前相机位姿。具体而言，程序会以传入的图像**构建图像帧**，在构建图像帧的过程中会提取**ORB特征点**等信息。之后使用`Track`函数进行跟踪。
 `Tracking`线程中，根据当前系统状态的执行操作分为以下几个部分
 - `NO_IMAGES_YET`：设置零时刻时间，初始化一帧图像帧，将当前状态设置为`NOT_INITIALIZED`
-- `NOT_INITIALIZED`：
+- `NOT_INITIALIZED`：进行**单目初始化**操作`MonocularInitialization`
 
 
 
