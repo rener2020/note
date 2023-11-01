@@ -31,4 +31,4 @@ for (seq = 0; seq<num_seq; seq++)
 
 
 
-
+# 单目初始化
