@@ -27,10 +27,6 @@ for (seq = 0; seq<num_seq; seq++)
 - `NO_IMAGES_YET`：设置零时刻时间，初始化一帧图像帧，将当前状态设置为`NOT_INITIALIZED`
 - `NOT_INITIALIZED`：进行**单目初始化**操作`MonocularInitialization`
 
-
-
-
-
 # 单目初始化
 系统中单目初始化一定不会只初始化一次，在第一次初始化时，系统通过`mpInitializer`判定是否是第一次初始化，之后初始化`mpInitializer`并进行一次**IMU预积分**。
 在`mpInitializer`初始化之后，系统进行第二次单目初始化。此时系统初始化`ORBmatcher`并对`mInitialFrame`和`mCurrentFrame`之间的特征点进行匹配，若匹配数目大于100，则通过`ReconstructWithTwoViews`获取相机位姿和地图点。
