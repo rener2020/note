@@ -1,9 +1,5 @@
----
-title: ORBSLAM3-系统与初始化
-tags: 新建,模板,小书匠
-category: /小书匠/日记/2023-10
-grammar_cjkRuby: true
----
+# ORBSLAM3-系统与初始化
+2023-10-32
 
 
 以`/Examples/Monocular-Inertial/mono_inertial_euroc.cc`为例，在`main`函数中，系统现将数据载入之后，初始化SLAM类。
