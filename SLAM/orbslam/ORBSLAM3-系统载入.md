@@ -12,8 +12,7 @@ grammar_cjkRuby: true
 ORB_SLAM3::System SLAM(argv[1],argv[2],ORB_SLAM3::System::IMU_MONOCULAR, true);
 ```
 
-在`System`类初始化时，同时初始化`Tracking`，`LocalMapping`和`LoopClosing`线程，并运行`LocalMapping`和`LoopClosing`线程。、、硕士
-之后进行系统追踪
+在`System`类初始化时，同时初始化`Tracking`，`LocalMapping`和`LoopClosing`线程，并运行`LocalMapping`和`LoopClosing`线程。之后在主线程中通过`TrackMonocular`进行系统追踪
 ``` cpp?linenums
 for (seq = 0; seq<num_seq; seq++)
 {
