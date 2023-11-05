@@ -313,6 +313,7 @@ X\\Y\\Z\\1
 \end{bmatrix}
 $$
  最小二乘：
+ 
  $$
  \xi^{\text{^}},P = \arg\min_{\xi^{\text{^}},P}\frac{1}{2}\sum||p_i-\frac{1}{s_i}K\exp(\xi^{\text{^}})P||
  $$
