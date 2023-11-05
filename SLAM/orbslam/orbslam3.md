@@ -303,19 +303,19 @@ LOCAL MAPPING 线程中
 ### 如何优化地图点
 地图点的优化主要是与位姿优化一起实现的
 投影方程s硕士：
-$$sss$$
+
 $$
 s_i\begin{bmatrix}
 u\\v\\1
 \end{bmatrix}=
-K\exp(\xi^{\text{^}})\begin{bmatrix}
+K\exp(\xi^{\wedge})\begin{bmatrix}
 X\\Y\\Z\\1
 \end{bmatrix}
 $$
  最小二乘：
  
  $$
- \xi^{\text{^}},P = \arg\min_{\xi^{\text{^}},P}\frac{1}{2}\sum||p_i-\frac{1}{s_i}K\exp(\xi^{\text{^}})P||
+ \xi^{\wedge},P = \arg\min_{\xi^{\wedge},P}\frac{1}{2}\sum||p_i-\frac{1}{s_i}K\exp(\xi^{\wedge})P||
  $$
 # 关键帧
 关键帧：具有代表性的图像帧
@@ -425,7 +425,7 @@ $$
 
 $$
 \begin{cases}
-\dot{R}=R(w)^{\text{^}}=R\exp(w) \\
+\dot{R}=R(w)^{\wedge}=R\exp(w) \\
 \dot{P}=V\\
 \dot{V}=a
 \end{cases}
