@@ -303,7 +303,7 @@ LOCAL MAPPING 线程中
 ### 如何优化地图点
 地图点的优化主要是与位姿优化一起实现的
 投影方程：
-
+$$sss$$
 $$
 s_i\begin{bmatrix}
 u\\v\\1
