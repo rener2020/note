@@ -14,4 +14,4 @@ LocalMapping的入口函数是`LocalMapping::Run`函数，在函数中，首先�
 6. 局部BA：`Optimizer::LocalBundleAdjustment`，当惯性数据无效
 7. IMU初始化：`InitializeIMU`当使用IMU且未初始化
 8. 删除冗余关键帧：`KeyFrameCulling`
-9. 
+9. 尺度优化：`ScaleRefinement`
