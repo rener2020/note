@@ -15,3 +15,4 @@ LocalMapping的入口函数是`LocalMapping::Run`函数，在函数中，首先�
 7. IMU初始化：`InitializeIMU`当使用IMU且未初始化
 8. 删除冗余关键帧：`KeyFrameCulling`
 9. 尺度优化：`ScaleRefinement`
+10. 在回环过程中插入当前关键帧：`mpLoopCloser->InsertKeyFrame(mpCurrentKeyFrame);`
