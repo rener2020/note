@@ -8,7 +8,7 @@ LocalMapping的入口函数是`LocalMapping::Run`函数，在函数中，首先�
 3. 构建新地图点：通过三角化恢复新的地图点
 
 
-处理完一个关键帧之后，若没有新关键帧则融合当前关键帧和相邻关键帧之间重复的地图点，若
+处理完一个关键帧之后，若没有新关键帧则融合当前关键帧和相邻关键帧之间重复的地图点
 1. 相邻关键帧融合：
 5. 局部惯性BA：`Optimizer::LocalInertialBA`，当惯性数据有效
 6. 局部BA：`Optimizer::LocalBundleAdjustment`，当惯性数据无效
