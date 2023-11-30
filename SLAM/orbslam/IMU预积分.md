@@ -12,7 +12,7 @@ mpImuPreintegratedFromLastKF = new IMU::Preintegrated(IMU::Bias(),*mpImuCalib);
 IMU测量模型如下：
 $$
 \begin{align}
-\hat{\omega}_b = \omega_b + b + \eta \\
-\hat{a}_b = R^b_w(a_w - g_w)+b+\eta
+&\hat{\omega}_b = \omega_b + b + \eta \\
+&\hat{a}_b = R^b_w({}^wa - {}^wg)+b+\eta
 \end{align}
 $$
