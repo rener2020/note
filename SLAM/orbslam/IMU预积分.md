@@ -57,8 +57,39 @@ A_{j-1} = \begin{bmatrix}
 \end{bmatrix}
 \\
 &
+B_{j-1}=\begin{bmatrix}
+J_r^{j-1}\Delta{}t & 0 \\
+0 & \Delta\widetilde{R}_{i,j-1}\Delta{}t \\
+0 & \cfrac{1}{2}\Delta\widetilde{R}_{i,j-1}\Delta{}t^2 \\
+\end{bmatrix}
 \\
 &
+\eta_{ij} = A_{j-1}\eta_{i,j-1}+B_{j-1}\eta_{j-1}^a
+\\
+&
+C_{ij} = A_{j-1}C_{i,j-1}A_{j-1}^T+B_{j-1}C_{\eta}B_{j-1}^T
 \\
 \end{align}
+$$
+bias更新时的预积分测量值更新使用一阶线性化近似更新（在这里体现防止重复计算累加）：
+$$
+\begin{align}
+& \Delta{}R_{ij} \approx \Delta{}R_{ij}\exp(\frac{\partial\Delta{}R_{ij}}{\partial{}b^\omega}\delta{}b_{new}) \\
+& \Delta{}v_{ij} \approx \Delta{}v_{ij} + \frac{\partial\Delta{}v_{ij}}{\delta{}b^\omega}\delta{}b_{new}^\omega + \frac{\partial\Delta{}v_{ij}}{\delta{}b^a}\delta{}b_{new}^a \\
+& \Delta{}p_{ij} \approx \Delta{}p_{ij} + \frac{\partial\Delta{}p_{ij}}{\delta{}b^\omega}\delta{}b_{new}^\omega + \frac{\partial\Delta{}p_{ij}}{\delta{}b^a}\delta{}b_{new}^a
+\end{align}
+$$
+其中：
+$$
+\begin{align}
+& \frac{\partial\Delta{}R_{ij}}{\partial{}b^\omega}=\sum\limits_{k=i}^{j-1}(-\Delta{}R_{k+1,j}^TJ_r^k\Delta{}t) \quad J_r^k=J_r({}^b\omega-b)\Delta{}t \\
+& \frac{\partial\Delta{}v_{ij}}{\partial{}b^\omega} = -\sum\limits_{k=i}^{j-1}(\Delta{}R_{ik}({}^ba_k-b_i^a)^\wedge\frac{\partial\Delta{}R_{ik}}{\partial{}b^\omega}\Delta{}t) \quad   \frac{\partial\Delta{}v_{ij}}{\partial{}b^a} = -\sum\limits_{k=i}^{j-1}(\Delta{}R_{ik}\Delta{}t)
+\end{align}
+$$
+
+$$
+\begin{aligned}
+&\frac{\partial\Delta{\overline{\mathbf{P}}}_{ij}}{\partial{\overline{\mathbf{b}}}^{g}} =\sum_{k=i}^{j-1}\Biggl[\frac{\partial\Delta\overline{\mathbf{v}}_{ik}}{\partial\overline{\mathbf{b}}^{g}}\Delta t-\frac{1}{2}\Delta\overline{\mathbf{R}}_{ik}\cdot\left(\tilde{\mathbf{f}}_{k}-\overline{\mathbf{b}}_{i}^{a}\right)^{\wedge}\frac{\partial\Delta\overline{\mathbf{R}}_{ik}}{\partial\overline{\mathbf{b}}^{g}}\Delta t^{2}\Biggr]  \\
+&\frac{\partial\Delta{\overline{\mathbf{P}}}_{ij}}{\partial{\overline{\mathbf{b}}}^{a}} =\sum_{k=i}^{j-1}\Biggl[\frac{\partial\Delta\overline{\mathbf{v}}_{ik}}{\partial\overline{\mathbf{b}}^{a}}\Delta t-\frac{1}{2}\Delta\overline{\mathbf{R}}_{ik}\Delta t^{2}\Biggr] 
+\end{aligned}
 $$
