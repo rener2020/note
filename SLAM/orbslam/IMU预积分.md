@@ -93,3 +93,4 @@ $$
 &\frac{\partial\Delta{\overline{\mathbf{P}}}_{ij}}{\partial{\overline{\mathbf{b}}}^{a}} =\sum_{k=i}^{j-1}\Biggl[\frac{\partial\Delta\overline{\mathbf{v}}_{ik}}{\partial\overline{\mathbf{b}}^{a}}\Delta t-\frac{1}{2}\Delta\overline{\mathbf{R}}_{ik}\Delta t^{2}\Biggr] 
 \end{aligned}
 $$
+## IMU偏置优化
