@@ -46,3 +46,19 @@ $$
 \Delta{}\widetilde{p}_{ij}&\approx{}R_i^T(p_j-p_i-v_i\Delta{}t_{ij}-\cfrac{1}{2}g\Delta{}t_{ij}^2)+ \delta{}p_{ij}
 \end{align}
 $$
+噪声协方差计算更新公式如下：
+$$
+\begin{align}
+&
+A_{j-1} = \begin{bmatrix}
+\Delta\widetilde{R}_{j,j-1} & 0 & 0 \\
+-\Delta\widetilde{R}_{i,j-1}({}^ba_{j-1}-b_i)^{\wedge}\Delta{}t & I & 0 \\
+-\frac{1}{2}\Delta\widetilde{R}_{i,j-1}({}^ba_{j-1}-b_i)^{\wedge}\Delta{}t^2 & \Delta{}tI & I \\
+\end{bmatrix}
+\\
+&
+\\
+&
+\\
+\end{align}
+$$
