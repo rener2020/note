@@ -93,4 +93,34 @@ $$
 &\frac{\partial\Delta{\overline{\mathbf{P}}}_{ij}}{\partial{\overline{\mathbf{b}}}^{a}} =\sum_{k=i}^{j-1}\Biggl[\frac{\partial\Delta\overline{\mathbf{v}}_{ik}}{\partial\overline{\mathbf{b}}^{a}}\Delta t-\frac{1}{2}\Delta\overline{\mathbf{R}}_{ik}\Delta t^{2}\Biggr] 
 \end{aligned}
 $$
-## IMU偏置优化
+在估计中，全部的导航状态是$\mathbf{R}_i,\mathbf{p}_i,\mathbf{v}_i,\mathbf{R}_j,\mathbf{p}_j,\mathbf{v}_j,\mathbf{\delta}\mathbf{b}_i^g,\mathbf{\delta}\mathbf{b}_i^a$，
+
+## IMU优化
+三项残差如下：
+$$
+\begin{aligned}
+\mathbf{r}_{\Delta\mathbf{R}_{ij}} &\triangleq\operatorname{Log}\left\{\left[\Delta\tilde{\mathbf{R}}_{ij}\left(\overline{\mathbf{b}}_{i}^{g}\right)\cdot\operatorname{Exp}\left(\frac{\partial\Delta\bar{\mathbf{R}}_{ij}}{\partial\overline{\mathbf{b}}^{g}}\delta\mathbf{b}_{i}^{g}\right)\right]^{T}\cdot\mathbf{R}_{i}^{T}\mathbf{R}_{j}\right\}  \\
+& \triangleq \operatorname{Log}\left[\left(\Delta\hat{\mathbf{R}}_{ij}\right)^T\Delta\mathbf{R}_{ij}\right] \\
+\mathbf{r}_{\Delta\mathbf{v}_{ij}} &\triangleq\mathbf{R}_i^T\left(\mathbf{v}_j-\mathbf{v}_i-\mathbf{g}\cdot\Delta t_{ij}\right)-\left[\Delta\tilde{\mathbf{v}}_{ij}\left(\mathbf{\overline{b}}_i^g,\mathbf{\overline{b}}_i^a\right)+\frac{\partial\Delta\overline{\mathbf{v}}_{ij}}{\partial\mathbf{\overline{b}}^g}\delta\mathbf{b}_i^g+\frac{\partial\Delta\overline{\mathbf{v}}_{ij}}{\partial\mathbf{\overline{b}}^a}\delta\mathbf{b}_i^a\right]  \\
+&\triangleq\Delta\mathbf{v}_{ij}-\Delta\mathbf{\hat{v}}_{ij} \\
+\mathbf{r}_{\Delta\mathbf{p}_{ij}}& \triangleq\mathbf{R}_i^T\left(\mathbf{p}_j-\mathbf{p}_i-\mathbf{v}_i\cdot\Delta t_{ij}-\frac12\mathbf{g}\cdot\Delta t_{ij}^2\right)-\left[\Delta\mathbf{\tilde{p}}_{ij}\left(\mathbf{\overline{b}}_i^g,\mathbf{\overline{b}}_i^a\right)+\frac{\partial\Delta\mathbf{\overline{p}}_{ij}}{\partial\mathbf{\overline{b}}^\mathrm{g}}\delta\mathbf{b}_i^g+\frac{\partial\Delta\mathbf{\overline{p}}_{ij}}{\partial\mathbf{\overline{b}}^a}\delta\mathbf{b}_i^a\right]  \\
+&\triangleq\Delta\mathbf{p}_{ij}-\Delta\mathbf{\hat{p}}_{ij}
+\end{aligned}
+$$
+雅可比求导如下：
+
+$$
+\begin{align}
+&\frac{\partial\mathbf{r}_{\Delta\mathbf{R}_{ij}}}{\partial\delta\vec{\phi}_j}=\mathbf{J}_r^{-1}\left(\mathbf{r}_{\Delta\mathbf{R}_{ij}}\right) \\
+&\frac{\partial\mathbf{r}_{\Delta\mathbf{R}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_i^\mathrm{g}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{R}_{ij}}}{\partial\partial\mathbf{b}_i^\mathrm{g}}=-\mathbf{J}_r^{-1}\left(\mathbf{r}_{\Delta\mathbf{R}_{ij}}\right)\cdot\mathrm{Exp}\left(-\mathbf{r}_{\Delta\mathbf{R}_{ij}}\right)\cdot\mathbf{J}_r\left(\frac{\partial\Delta\mathbf{\overline{R}_{ij}}}{\partial\mathbf{\bar{b}^\mathrm{g}}}\partial\mathbf{b}_i^\mathrm{g}\right)\cdot\frac{\partial\Delta\mathbf{\overline{R}}_{ij}}{\partial\mathbf{\bar{b}^\mathrm{g}}} \\
+& \frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_i^\mathrm{g}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\partial\mathbf{b}_i^\mathrm{g}}=-\frac{\partial\Delta\overline{\mathbf{v}}_{ij}}{\partial\mathbf{b}^\mathrm{g}},\quad\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_i^\mathrm{a}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\partial\mathbf{b}_i^\mathrm{a}}=-\frac{\partial\Delta\overline{\mathbf{v}}_{ij}}{\partial\mathbf{b}^a}\\
+& \frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\delta\mathbf{v}_i}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\mathbf{v}_i}=-\mathbf{R}_i^T \\
+& \Large\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\delta\mathbf{v}_j}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\mathbf{v}_j}=\mathbf{R}_i^T \\
+& \frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\delta\vec{\phi}_i}=\left[\mathbf{R}_i^T\cdot\left(\mathbf{v}_j-\mathbf{v}_i-\mathbf{g}\cdot\Delta t_{ij}\right)\right]^\wedge  \\
+& \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_{i}^{g}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{b}_{i}^{g}}=-\frac{\partial\Delta\mathbf{\overline{p}}_{ij}}{\partial\mathbf{b}^{g}},\quad\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_{i}^{a}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\partial\mathbf{b}_{i}^{a}}=-\frac{\partial\Delta\mathbf{\overline{p}}_{ij}}{\partial\mathbf{b}^{a}} \\
+& \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{p}_i}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\mathbf{p}_i}=-\mathbf{I} \\
+&  \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{p}_j}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\mathbf{p}_j}=\mathbf{R}_i^T\mathbf{R}_j \\
+& \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{v}_i}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\mathbf{v}_i}=-\mathbf{R}_i^T\Delta t_{ij} \\
+\end{align}
+$$
+
