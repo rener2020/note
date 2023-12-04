@@ -115,7 +115,7 @@ $$
 &\frac{\partial\mathbf{r}_{\Delta\mathbf{R}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_i^\mathrm{g}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{R}_{ij}}}{\partial\partial\mathbf{b}_i^\mathrm{g}}=-\mathbf{J}_r^{-1}\left(\mathbf{r}_{\Delta\mathbf{R}_{ij}}\right)\cdot\mathrm{Exp}\left(-\mathbf{r}_{\Delta\mathbf{R}_{ij}}\right)\cdot\mathbf{J}_r\left(\frac{\partial\Delta\mathbf{\overline{R}_{ij}}}{\partial\mathbf{\bar{b}^\mathrm{g}}}\partial\mathbf{b}_i^\mathrm{g}\right)\cdot\frac{\partial\Delta\mathbf{\overline{R}}_{ij}}{\partial\mathbf{\bar{b}^\mathrm{g}}} \\
 & \frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_i^\mathrm{g}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\partial\mathbf{b}_i^\mathrm{g}}=-\frac{\partial\Delta\overline{\mathbf{v}}_{ij}}{\partial\mathbf{b}^\mathrm{g}},\quad\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_i^\mathrm{a}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\partial\mathbf{b}_i^\mathrm{a}}=-\frac{\partial\Delta\overline{\mathbf{v}}_{ij}}{\partial\mathbf{b}^a}\\
 & \frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\delta\mathbf{v}_i}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\mathbf{v}_i}=-\mathbf{R}_i^T \\
-& \Large\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\delta\mathbf{v}_j}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\mathbf{v}_j}=\mathbf{R}_i^T \\
+& \frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\delta\mathbf{v}_j}=\frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\mathbf{v}_j}=\mathbf{R}_i^T \\
 & \frac{\partial\mathbf{r}_{\Delta\mathbf{v}_{ij}}}{\partial\delta\vec{\phi}_i}=\left[\mathbf{R}_i^T\cdot\left(\mathbf{v}_j-\mathbf{v}_i-\mathbf{g}\cdot\Delta t_{ij}\right)\right]^\wedge  \\
 & \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_{i}^{g}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{b}_{i}^{g}}=-\frac{\partial\Delta\mathbf{\overline{p}}_{ij}}{\partial\mathbf{b}^{g}},\quad\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\widetilde{\partial\mathbf{b}_{i}^{a}}}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\partial\mathbf{b}_{i}^{a}}=-\frac{\partial\Delta\mathbf{\overline{p}}_{ij}}{\partial\mathbf{b}^{a}} \\
 & \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{p}_i}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\mathbf{p}_i}=-\mathbf{I} \\
@@ -124,5 +124,6 @@ $$
 & \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\vec{\phi}_i}=\left[\mathbf{R}_i^T\cdot\left(\mathbf{p}_j-\mathbf{p}_i-\mathbf{v}_i\cdot\Delta t_{ij}-\frac12\mathbf{g}\cdot\Delta t_{ij}^2\right)\right]^{\wedge} \\
 \end{align}
 $$
+
 
 
