@@ -121,6 +121,8 @@ $$
 & \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{p}_i}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\mathbf{p}_i}=-\mathbf{I} \\
 &  \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{p}_j}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\mathbf{p}_j}=\mathbf{R}_i^T\mathbf{R}_j \\
 & \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\mathbf{v}_i}=\frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\mathbf{v}_i}=-\mathbf{R}_i^T\Delta t_{ij} \\
+& \frac{\partial\mathbf{r}_{\Delta\mathbf{p}_{ij}}}{\partial\delta\vec{\phi}_i}=\left[\mathbf{R}_i^T\cdot\left(\mathbf{p}_j-\mathbf{p}_i-\mathbf{v}_i\cdot\Delta t_{ij}-\frac12\mathbf{g}\cdot\Delta t_{ij}^2\right)\right]^{\wedge} \\
 \end{align}
 $$
+
 
