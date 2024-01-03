@@ -14,7 +14,7 @@
 	1. 不存在：地图点添加观测三部曲：添加-更新平均观测方向和深度（UpdateNormalAndDepth）-更新描述子（ComputeDistinctiveDescriptors）
 	2. 存在：暂存入近期增加的地图点集合中，等待后续查验
 4. 更新共视图：UpdateConnections
-5. 将此关键帧加入当前地图中：AddKeyFrame
+5. 将此关键帧加入当前地图中、
 
 ## 更新平均观测方向和深度 UpdateNormalAndDepth
 1. 遍历所有地图点的可观测帧
@@ -27,3 +27,8 @@
 
 ## 更新描述子 ComputeDistinctiveDescriptors
 一个地图点可以被n个关键帧观测到，在每个关键帧中都有一个其orb描述子，获取其一个与其他描述子距离最小的描述子作为代表描述子
+
+## 更新共视图：UpdateConnections
+1. 获取当前关键帧地图点，根据地图点观测度重合程度与其他关键帧建立边
+2. 剔除小于阈值的边，只保留大于阈值或者阈值之下最大的边
+3. 如果未初始化，则初始化为连接权重最大的边
