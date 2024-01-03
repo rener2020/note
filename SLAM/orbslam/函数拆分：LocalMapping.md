@@ -5,7 +5,15 @@
 
 ## LocalMapping::run
 1. 处理列表中的关键帧 
+2. 对mlpRecentAddedMapPoints中的地图点进行检测和剔除 MapPointCulling
 
+
+## 地图点进行检测和剔除 MapPointCulling
+剔除逻辑
+1. 坏点
+2. 已经被观测到帧/应该被观测到帧 < 0.25
+3. 被超过两个关键帧跟踪但是观测到此地图点帧个数未达到阈值
+4. 
 
 ## ProcessNewKeyFrame
 1. 选取队列中第一个并将暂时其移出队列
@@ -14,7 +22,7 @@
 	1. 不存在：地图点添加观测三部曲：添加-更新平均观测方向和深度（UpdateNormalAndDepth）-更新描述子（ComputeDistinctiveDescriptors）
 	2. 存在：暂存入近期增加的地图点集合中，等待后续查验
 4. 更新共视图：UpdateConnections
-5. 将此关键帧加入当前地图中、
+5. 将此关键帧加入当前地图中
 
 ## 更新平均观测方向和深度 UpdateNormalAndDepth
 1. 遍历所有地图点的可观测帧
