@@ -6,8 +6,25 @@
 ## LocalMapping::run
 1. 处理列表中的关键帧  ProcessNewKeyFrame
 2. 对mlpRecentAddedMapPoints中的地图点进行检测和剔除 MapPointCulling
-3. 通过三角化恢复新的地图点 
+3. 通过三角化恢复新的地图点 CreateNewMapPoints
 
+
+## 通过三角化恢复新的地图点 CreateNewMapPoints
+1. 获取共视程度最高的n个关键帧
+2. 如果是IMU模式，则添加更多的关键帧存入附近关键帧，添加逻辑为：将不大于n个关键帧的前一关键帧加入获取关键帧
+3. 如果基线长度/场景深度<0.01，则跳过
+4. 计算当前关键帧和周围关键帧的基础矩阵F
+5. 对当前处理的关键帧和周围一关键帧进行三角化搜索特征 SearchForTriangulation
+6. 对每对成功匹配点三角化（线性三角化SVD）生成地图点
+7. 检查三角化，是否正面、投影误差
+8. 检查尺度比例与帧金字塔层尺度比例是否一致
+9. 构建新3d点
+
+## 三角化搜索特征 SearchForTriangulation
+搜索特征点对应关系
+1. 相机1在2上的投影距离匹配特征点不要太近
+2. 匹配距离检查
+3. 极线距离检查
 
 ## 地图点进行检测和剔除 MapPointCulling
 剔除逻辑
