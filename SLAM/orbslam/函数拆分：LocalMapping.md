@@ -7,6 +7,8 @@
 1. 处理列表中的关键帧  ProcessNewKeyFrame
 2. 对mlpRecentAddedMapPoints中的地图点进行检测和剔除 MapPointCulling
 3. 通过三角化恢复新的地图点 CreateNewMapPoints
+4. 融合当前关键帧和相邻关键帧中重复的地图点 SearchInNeighbors
+5. 
 
 
 ## 通过三角化恢复新的地图点 CreateNewMapPoints
