@@ -7,6 +7,8 @@
 ## 回环检测 NewDetectCommonRegions
 IMU模式下如果还没进行第二次初始化则不进行回环检测
 1. 若当前关键帧没有被检测到回环或融合，则寻找当前关键帧的三个回环候选帧和融合候选帧  DetectNBestCandidates
+2. 对回环候选帧再进行检测，判断是否发生回环 DetectCommonRegionsFromBoW
+3. 
 
 
 ## 寻找当前关键帧的三个回环候选帧和融合候选帧  DetectNBestCandidates
