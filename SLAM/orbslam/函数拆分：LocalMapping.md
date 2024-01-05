@@ -8,8 +8,31 @@
 2. 对mlpRecentAddedMapPoints中的地图点进行检测和剔除 MapPointCulling
 3. 通过三角化恢复新的地图点 CreateNewMapPoints
 4. 融合当前关键帧和相邻关键帧中重复的地图点 SearchInNeighbors
-5. 
 
+如果是IMU模式，且IMU初始化已完成，则判断IMU运动距离是否足够
+- 足够：局部惯性BA LocalInertialBA
+- 不够：局部BA LocalBundleAdjustment
+
+## 局部惯性BA LocalInertialBA
+先确定待优化的关键帧
+1. 加入当前关键帧的前nd个关键帧，被min控制
+2. 将这些关键帧的地图点加入lLocalMapPoints
+3. 共视关键帧中地图点加入lLocalMapPoints
+3. 固定待优化关键帧的最开始一帧的上一帧，不存在则固定其本身
+4. 将lLocalMapPoints中地图点的观测帧中未被加入优化的帧加入固定关键帧
+5. 建立关于关键帧的节点，其中包括，位姿，速度，以及两个偏置
+5. 建立关于共视关键帧的节点
+
+
+构造优化器，正式开始优化
+1. 建立局部时间相关关键帧的边，其中包括，位姿，速度，以及两个偏置 VertexPose VertexVelocity VertexGyroBias VertexAccBias
+2. 建立局部视觉相关关键帧的边，其中包括位姿 VertexPose
+3. 建立固定关键帧相关关键帧的边，其中包括位姿，速度，以及两个偏置 VertexPose VertexVelocity VertexGyroBias VertexAccBias
+4. 建立惯性约束，这里的惯性约束指的是IMU计算出来的位置、速度、加速度等量，根据两帧之间的这些量建立约束，并且对惯性边降权，避免由于固定变量而累积错误
+5. 给地图点添加单目视觉边
+6. 删除当前帧外点
+7. 优化结果系统赋值
+	
 
 ## 融合当前关键帧和相邻关键帧中重复的地图点 SearchInNeighbors
 融合关键帧选择条件：
@@ -22,7 +45,10 @@
 1.如果地图点能匹配关键帧的特征点，并且该点有对应的地图点，那么选择观测数目多的替换两个地图点
 2.如果地图点能匹配关键帧的特征点，并且该点没有对应的地图点，那么为该点添加该投影地图点
 
-用候选关键帧的地图点与当前关键帧进行融合
+再用候选关键帧的地图点与当前关键帧进行融合，之后
+1. 更新当前关键帧的最小描述子ComputeDistinctiveDescriptors 和平均观测方向  UpdateNormalAndDepth
+2. 更新当前关键帧的共视图 UpdateConnections
+
 
 
 ## 通过三角化恢复新的地图点 CreateNewMapPoints
