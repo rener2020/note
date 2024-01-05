@@ -17,8 +17,23 @@
 
 1. 删除冗余关键帧 KeyFrameCulling 若此关键帧中90%的地图点都至少被3个其他关键帧看到，则认为这个关键帧是冗余关键帧
 2. 在第5秒 第10秒 再次初始化IMU InitializeIMU
-3. 在第100秒之前每隔10s优化一次尺度和重力方向
+3. 在第100秒之前每隔10s优化一次尺度和重力方向  ScaleRefinement
 4. 将当前关键帧加入回环检测 
+
+
+## 优化尺度和重力方向 ScaleRefinement
+1. 进行尺度惯性优化 InertialOptimization
+2. 矫正 ApplyScaledRotation
+3. 更新相对位姿 UpdateFrameIMU
+4. 
+
+
+## 惯性优化 InertialOptimization
+1. 获取所有的关键帧
+2. 设置**固定**位姿顶点 VertexPose 速度顶点 VertexVelocity 陀螺仪偏置顶点 VertexGyroBias 加速度偏置顶点 VertexAccBias
+3. 设置重力顶点 VertexGDir 尺度顶点 VertexScale 
+4. 设置惯性重力方向和尺度边 EdgeInertialGS
+5. 优化
 
 
 ## IMU初始化  InitializeIMU
