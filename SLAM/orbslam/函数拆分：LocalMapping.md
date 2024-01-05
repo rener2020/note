@@ -15,6 +15,12 @@
 
 若IMU模式且还没进行初始化，则进行IMU初始化  InitializeIMU
 
+1. 删除冗余关键帧 KeyFrameCulling 若此关键帧中90%的地图点都至少被3个其他关键帧看到，则认为这个关键帧是冗余关键帧
+2. 在第5秒 第10秒 再次初始化IMU InitializeIMU
+3. 在第100秒之前每隔10s优化一次尺度和重力方向
+4. 将当前关键帧加入回环检测 InsertKeyFrame 
+
+
 ## IMU初始化  InitializeIMU
 1. 载入时间序列上所有的关键帧
 2. 初始化IMU偏置为0
@@ -24,6 +30,7 @@
 6. 使用优化后的初始帧旋转矩阵进行系统矫正
 7. 更新tracking线程中存储的相对位姿 UpdateFrameIMU
 8. 进行一次全局惯性BA FullInertialBA
+9. 再次更新相对位姿 UpdateFrameIMU
 
 ## 全局惯性BA FullInertialBA
 - 获取所有的关键帧和地图点
@@ -32,7 +39,7 @@
 - 设置先验边 加速度先验边  EdgePriorAcc 陀螺仪先验边 EdgePriorGyro
 - 设置地图点顶点 VertexSBAPointXYZ 和帧位姿边 VertexPose  用单目边连接 EdgeMono 投影误差
 - 通过优化变量更新系统变量
-- 
+
 
 
 ## 更新相对位姿 UpdateFrameIMU
