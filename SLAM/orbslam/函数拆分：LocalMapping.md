@@ -13,9 +13,23 @@
 - 足够：局部惯性BA LocalInertialBA
 - 不够：局部BA LocalBundleAdjustment
 
-若IMU模式且还没进行初始化，则进行初始化  InitializeIMU
+若IMU模式且还没进行初始化，则进行IMU初始化  InitializeIMU
+
+## IMU初始化  InitializeIMU
+1. 载入时间序列上所有的关键帧
+2. 初始化IMU偏置为0
+3. 计算帧速度初值和重力方向
+4. 使用当前z方向和重力方向计算初始旋转矩阵
+5. 进行惯性优化 InertialOptimization
 
 
+## 惯性优化 InertialOptimization
+1. 保持关键帧的位姿不变，优化关键帧的速度 VertexPose VertexVelocity
+2. 设置陀螺仪和加速度计偏置节点 VertexGyroBias VertexAccBias
+2. 添加关于加速度计与陀螺仪偏置的边，保证第一帧的偏置为0 EdgePriorAcc EdgePriorGyro
+3. 添加关于重力和尺度的节点  VertexGDir VertexScale
+4. 将时间域上每两个关键帧之间设置位置、速度、加速度、角速度、重力、尺度顶点
+5. 优化
 
 ## 局部BA LocalBundleAdjustment
 1. 获得当前关键帧的共视关键帧，添加共视关键帧到局部关键帧列表中
