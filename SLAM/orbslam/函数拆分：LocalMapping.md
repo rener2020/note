@@ -18,7 +18,7 @@
 1. 删除冗余关键帧 KeyFrameCulling 若此关键帧中90%的地图点都至少被3个其他关键帧看到，则认为这个关键帧是冗余关键帧
 2. 在第5秒 第10秒 再次初始化IMU InitializeIMU
 3. 在第100秒之前每隔10s优化一次尺度和重力方向
-4. 将当前关键帧加入回环检测 InsertKeyFrame 
+4. 将当前关键帧加入回环检测 
 
 
 ## IMU初始化  InitializeIMU
