@@ -13,6 +13,20 @@
 - 足够：局部惯性BA LocalInertialBA
 - 不够：局部BA LocalBundleAdjustment
 
+若IMU模式且还没进行初始化，则进行初始化  InitializeIMU
+
+## 局部BA LocalBundleAdjustment
+1. 获得当前关键帧的共视关键帧，添加共视关键帧到局部关键帧列表中
+2. 遍历局部关键帧列表，添加可以使用的地图点
+3. 遍历局部地图点，在lFixedCameras中存入可观测到地图点但不是局部关键帧的关键帧，不进行优化
+4. 判断固定关键帧的个数，保证至少2个关键帧是固定的。避免尺度漂移
+5. 遍历局部关键帧列表，设置局部关键帧顶点 VertexSE3Expmap
+6. 添加关键帧顶点的固定顶点 VertexSE3Expmap
+7. 遍历局部地图点，添加顶点 VertexSBAPointXYZ 遍历此地图点的观测 边一边连接此地图点，一边连接KF EdgeSE3ProjectXYZ
+8. 外点检测，剔除地图点
+9. 遍历所有的局部关键帧，更新关键帧位姿
+10. 遍历地图点，更新地图点位姿
+
 ## 局部惯性BA LocalInertialBA
 先确定待优化的关键帧
 1. 加入当前关键帧的前nd个关键帧，被min控制
