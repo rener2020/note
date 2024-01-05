@@ -21,7 +21,11 @@
 3. 计算帧速度初值和重力方向
 4. 使用当前z方向和重力方向计算初始旋转矩阵
 5. 进行惯性优化 InertialOptimization
+6. 使用优化后的初始帧旋转矩阵进行系统矫正
 
+## 矫正 ApplyScaledRotation
+- 使用优化量矫正旋转位姿和使用尺度优化量恢复真实速度、位置等坐标系和尺度
+- 使用优化量矫正地图点的旋转位姿和尺度
 
 ## 惯性优化 InertialOptimization
 1. 保持关键帧的位姿不变，优化关键帧的速度 VertexPose VertexVelocity
