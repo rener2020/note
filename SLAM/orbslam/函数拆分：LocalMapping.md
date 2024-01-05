@@ -22,6 +22,23 @@
 4. 使用当前z方向和重力方向计算初始旋转矩阵
 5. 进行惯性优化 InertialOptimization
 6. 使用优化后的初始帧旋转矩阵进行系统矫正
+7. 更新tracking线程中存储的相对位姿 UpdateFrameIMU
+8. 进行一次全局惯性BA FullInertialBA
+
+## 全局惯性BA FullInertialBA
+- 获取所有的关键帧和地图点
+- 设置关键帧顶点 位姿 VertexPose 速度 VertexVelocity 陀螺仪偏置 VertexGyroBias 加速度偏置 VertexAccBias
+- 添加连接惯性顶点 使用惯性边 EdgeInertial 陀螺仪边 EdgeGyroRW 加速度边 EdgeAccRW （C在这里使用作为信息矩阵）
+- 设置先验边 加速度先验边  EdgePriorAcc 陀螺仪先验边 EdgePriorGyro
+- 设置地图点顶点 VertexSBAPointXYZ 和帧位姿边 VertexPose  用单目边连接 EdgeMono 投影误差
+- 通过优化变量更新系统变量
+- 
+
+
+## 更新相对位姿 UpdateFrameIMU
+- 恢复相关帧之间的相对尺度
+- 更新帧偏置
+- 设置帧速度
 
 ## 矫正 ApplyScaledRotation
 - 使用优化量矫正旋转位姿和使用尺度优化量恢复真实速度、位置等坐标系和尺度
