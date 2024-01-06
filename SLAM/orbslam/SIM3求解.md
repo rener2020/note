@@ -78,6 +78,6 @@ $$
 N = \begin{bmatrix}(S_{xx}+S_{yy}+S_{zz})&S_{yz}-S_{zy}&S_{zx}-S_{xz}&S_{xy}-S_{yx}\\S_{yz}-S_{zy}&(S_{xx}-S_{yy}-S_{zz})&S_{xy}+S_{yx}&S_{zx}+S_{xz}\\S_{zx}-S_{xz}&S_{xy}-S_{yx}&(-S_{xx}+S_{yy}-S_{zz})&S_{yz}+S_{zy}\\S_{xy}-S_{yx}&S_{zx}+S_{xz}&S_{yz}-S_{zy}&(-S_{xx}-S_{yy}+S_{zz})\end{bmatrix}
 $$
 
-计算可得到四元数，之后按公式求解$t$和$s$即可
+计算可得到四元数，之后按公式求解$t$和$s$即可，orbslam中使用的是未改进尺度计算方法计算尺度
 
 
