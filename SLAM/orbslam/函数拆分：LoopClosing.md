@@ -23,7 +23,8 @@ IMU模式下如果还没进行第二次初始化则不进行回环检测
 7. 将闭环匹配上关键帧以及相连关键帧的MapPoints 再次投影到当前关键帧进行投影匹配
 8. 如果这次投影地图点大于80时，默认为最佳匹配帧已经找到了
 9. 取当前帧 5个最佳共视帧 
-10. 判断当前帧的共视帧与最佳匹配帧是否相关联 DetectAndReffineSim3FromLastKF
+10. 判断当前帧的共视帧与最佳匹配帧是否相关联 DetectAndReffineSim3FromLastKF 
+11. 相关联则发生回环
 
 ## 判断当前帧的共视帧与最佳匹配帧是否相关联 DetectAndReffineSim3FromLastKF
 1. 地图匹配点大于30：基于新的相对关系（sim3 mHessian7x7）进行优化：已匹配的地图点，相对关系
