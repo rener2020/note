@@ -8,7 +8,7 @@
 	2. 非IMU模式：MergeLocal
 3. 回环矫正
 	1. IMU模式：相对位姿的旋转角度，roll、pitch不能大于0.008，yaw不大于0.349，roll、pitch强置为0进行闭环矫正 CorrectLoop()
-	2. 非IMU模式： 直接进行闭环矫正 CorrectLoop、
+	2. 非IMU模式： 直接进行闭环矫正 CorrectLoop
 
 
 ## 闭环矫正 CorrectLoop
