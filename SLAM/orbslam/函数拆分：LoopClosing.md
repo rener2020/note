@@ -1,6 +1,7 @@
-# 函数拆分：LoopClosing
+# 函数拆分：<a class="xsj_anchor xsj_anchor_range xsj_anchor_range_start" name="xsj_1704618221767"></a>LoopClosing<a class="xsj_anchor xsj_anchor_range xsj_anchor_range_end" name="xsj_1704618221767"></a>
 2024-01-05
 
+## LoopClosing::run
 1. 回环检测 NewDetectCommonRegions
 2. 地图融合（在IMU模式下只有IMU初始化成功之后才融合）
 	1. 如果是IMU模式，只有尺度比例在0.9-1.1之间才进行融合，且只融合yaw轴 MergeLocal2
@@ -11,6 +12,7 @@
 
 
 ## 闭环矫正 CorrectLoop
+
 
 
 ## MergeLocal2
