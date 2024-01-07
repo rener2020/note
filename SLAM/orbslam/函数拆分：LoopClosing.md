@@ -2,13 +2,58 @@
 2024-01-05
 
 1. 回环检测 NewDetectCommonRegions
+2. 地图融合（在IMU模式下只有IMU初始化成功之后才融合）
+	1. 如果是IMU模式，只有尺度比例在0.9-1.1之间才进行融合，且只融合yaw轴 MergeLocal2
+	2. 非IMU模式：MergeLocal
+3. 回环矫正
+	1. IMU模式：相对位姿的旋转角度，roll、pitch不能大于0.008，yaw不大于0.349，roll、pitch强置为0进行闭环矫正 CorrectLoop()
+	2. 非IMU模式： 直接进行闭环矫正 CorrectLoop、
 
+
+## 闭环矫正 CorrectLoop
+
+
+## MergeLocal2
+1. 从“当前关键帧”地图中得到 链接区域的 关键帧+地图点
+2. 取当前帧“15”个最佳共视帧，放入 局部关键帧窗口中
+3. 若共视帧小于15，且下面动作未做满3次时：遍历局部关键帧窗口，找到7个最佳共视帧，若未在局部关键帧窗口中，则加入
+4. 从“合并匹配帧”地图中得到 链接区域的 关键帧+地图点
+5. 检测融合地图，将“合并匹配帧”地图中得到 链接区域的地图点 放入其融合地图
+6. 得到当前帧的位姿的逆
+7. 遍历从“当前关键帧”地图中得到 链接区域的 关键帧，并计算出与当前帧的修正关系
+8. 遍历从“当前关键帧”地图中得到 链接区域的 地图点，并计算出与当前帧的修正关系
+9. 关键帧和地图点修正
+10. 因为地图进行了融合，所以要重新建立关键帧之间的父子连接关系
+11. 融合局部窗口的地图点. 将在合并关键帧附近观察到的 MapPoints 投影到当前关键帧和使用校正姿势的邻居中。 融合重复 SearchAndFuse
+12. 更新所有局部关键帧的共视连接关系 UpdateConnections
+13. 进行局部窗口的BA优化 MergeInertialBA
+14. 更新当前地图的关键帧和地图点
+15. 利用位姿传播调整局部窗口以外的关键帧位姿，然后进行本质图优化(非单目情况才进行优化)：
+16. 全局BA。imu模式下关键帧数量必须小于200，地图集只能有一个地图，不然视觉imu全局BA计算量太大 RunGlobalBundleAdjustment
+
+## MergeLocal
+和MergeLocal2基本一致，无IMU执行 LocalBundleAdjustment 而不是 MergeInertialBA
+
+## RunGlobalBundleAdjustment
+1. IMU未初始化 GlobalBundleAdjustemnt
+2. IMU已初始化 FullInertialBA
+3. 更新优化量
+
+
+## GlobalBundleAdjustemnt
+就是 BundleAdjustment
+
+
+## BundleAdjustment
+1. 单目边 EdgeSE3ProjectXYZ
+2. 顶点 关键帧位姿顶点 VertexSE3Expmap 地图点顶点 VertexSBAPointXYZ
 
 ## 回环检测 NewDetectCommonRegions
 IMU模式下如果还没进行第二次初始化则不进行回环检测
 1. 若当前关键帧没有被检测到回环或融合，则寻找当前关键帧的三个回环候选帧和融合候选帧  DetectNBestCandidates
 2. 对回环候选帧再进行检测，判断是否发生回环 DetectCommonRegionsFromBoW
-3. 
+3. 对融合候选帧再进行检测，判断是否发生融合  DetectCommonRegionsFromBoW
+4. 将当前关键帧添加到关键帧数据库中
 
 
 ## 判断是否发生回环 DetectCommonRegionsFromBoW
@@ -25,6 +70,7 @@ IMU模式下如果还没进行第二次初始化则不进行回环检测
 9. 取当前帧 5个最佳共视帧 
 10. 判断当前帧的共视帧与最佳匹配帧是否相关联 DetectAndReffineSim3FromLastKF 
 11. 相关联则发生回环
+12. 
 
 ## 判断当前帧的共视帧与最佳匹配帧是否相关联 DetectAndReffineSim3FromLastKF
 1. 地图匹配点大于30：基于新的相对关系（sim3 mHessian7x7）进行优化：已匹配的地图点，相对关系
