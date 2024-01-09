@@ -10,9 +10,10 @@ $$F(x) = [e(x) + J\Delta x]^T\Omega[e(x)+J\Delta x] = e(x)^T\Omega e(x) + 2e(x)^
 $$2e(x)^T\Omega J + 2J^T\Omega J \Delta x = 0$$
 求得$\Delta x$，如果是LM方法，则：
 $$2e(x)^T\Omega J + (2J^T\Omega J + \lambda I)\Delta x  = 0$$
-## 可调参数化
+## 参数替换理论
 使用扰动模式使得雅可比矩阵存在，将对原始不可导参数的求导转换为对于扰动的求导使得雅可比存在
 
-## 线性化系统的结构
-雅可比矩阵是对$\Delta x$的偏导数
+## 系数结构结构
+
+ 
 
