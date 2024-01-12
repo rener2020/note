@@ -125,8 +125,6 @@ $$
 \Delta \hat{p}_{ij} &= \Delta\bar{p}_{ij} + \cfrac{\partial \Delta \bar{p}}{\partial \bar{b}}\delta b \\
 \end{align}
 $$
-### 残差
-
 
 ### 残差定义
 三项残差定义如下：
