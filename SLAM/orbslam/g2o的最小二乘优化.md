@@ -88,10 +88,27 @@ $$
 $$
 \begin{align}
 \Delta p_{ij} &= \sum\big[ \Delta\tilde{v}_{ik}\Delta t + \cfrac{1}{2}\Delta\tilde{R}_{ik}(\tilde{a} - b)\Delta t^2 - \cfrac{1}{2}\Delta\tilde{R}\eta\Delta t^2 - \delta v_{ik}\Delta t \big] \\
-& \Delta \tilde{p}_{ij} - \delta p_{ij}
+&  = \Delta \tilde{p}_{ij} - \delta p_{ij}
 \end{align}
 $$
 其中$\tilde{p}_{ij}$为预积分测量值，由IMU测量值和对bias的估计得到，$\delta p_{ij}$为其测量噪声
+
+### 预积分测量噪声的协方差矩阵
+$$
+\begin{align}
+A_{j-1} &= \begin{bmatrix}
+\Delta \tilde{R}_{i,j-1} & 0 & 0 \\
+ - \Delta \tilde{R}_{i,j-1}[\tilde{a}_{j-1} - b]\Delta t & I & 0\\
+ - \cfrac{1}{2}\Delta \tilde{R}_{i,j-1}[\tilde{a} _{j-1}- b]\Delta t^2 & I\Delta t & 0\\
+\end{bmatrix} \\
+B &= \begin{bmatrix}
+J_r^{j-1}\Delta t & 0 \\
+0 & \Delta\tilde{R}_{i,j-1}\Delta t \\
+0 & \cfrac{1}{2}\Delta\tilde{R}_{i,j-1}\Delta t^2 
+\end{bmatrix} \\
+\Sigma_{i,j} &= A_{j-1}\Sigma_{i,j-1}A_{j-1}^T + B_{j-1}\Sigma_\eta B_{j-1}^T
+\end{align}
+$$
 
 ### bias更新时的预积分测量值更新
 定义：
@@ -99,8 +116,15 @@ $$
 - $\hat{b}$：新bias
 - $\delta b$：更新量
 
+利用线性化来进行bias变化时刻的一阶近似更新方法
 
-
+$$
+\begin{align}
+\Delta\hat{R}_{ij} &= \Delta\bar{R}_{ij}\exp(\cfrac{\partial\Delta \bar{R}_{ij}}{\partial \bar{b}}\delta b) \\
+\Delta \hat{v}_{ij} &= \Delta\bar{v}_{ij} + \cfrac{\partial \Delta \bar{v}}{\partial \bar{b}}\delta b \\
+\Delta \hat{p}_{ij} &= \Delta\bar{p}_{ij} + \cfrac{\partial \Delta \bar{p}}{\partial \bar{b}}\delta b \\
+\end{align}
+$$
 ### 残差
 
 
