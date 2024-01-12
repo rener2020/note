@@ -56,17 +56,55 @@ $$m_2^TEm_1 = 0$$
 $$
 \begin{align}
 &\begin{cases}
-& R_j = R_i\prod\exp(\hat{\omega} - b - \eta)\Delta t \\
-& v_j = v_i + g\Delta t + \sum R_k(\hat{a} -b -\eta)\Delta t \\
-& p_j = p_i + \sum \big[ v\Delta t + \frac{1}{2} g\Delta t^2 + \sum \frac{1}{2} R(\hat{a} -b -\eta)\Delta t^2  \big] 
+& R_j = R_i\prod\exp(\tilde{\omega} - b - \eta)\Delta t \\
+& v_j = v_i + g\Delta t + \sum R_k(\tilde{a} -b -\eta)\Delta t \\
+& p_j = p_i + \sum \big[ v\Delta t + \frac{1}{2} g\Delta t^2 + \sum \frac{1}{2} R(\tilde{a} -b -\eta)\Delta t^2  \big] 
 \end{cases} \to \\
 & \begin{cases}
-\Delta R_{ij} \dot{=} R_i^TR_j = \prod \exp \big( \hat{\omega} -b- \eta \big)\Delta t  \\
-\Delta v_{ij} \dot{=} R_i^T(v_j - v_i - g\Delta t_{ij}) = \sum_{k=i}^{j-1}\Delta R_{ik}(\hat{a}_k - b_k - \eta_k)\Delta t \\
-\Delta p_{ij} \hat{=} R_i^T(p_j - p_i -v_i\Delta t_{ij} - \frac{1}{2}g\Delta  t_{ij}^2) = \sum_{k=i}^{j-1}\big[ \Delta v_{ik}\Delta t + \cfrac{1}{2}\Delta R_{ik}(\hat{a} - b - \eta)\Delta t^2 \big]
+&\Delta R_{ij} \dot{=} R_i^TR_j = \prod \exp \big( \tilde{\omega} -b- \eta \big)\Delta t  \\
+&\Delta v_{ij} \dot{=} R_i^T(v_j - v_i - g\Delta t_{ij}) = \sum_{k=i}^{j-1}\Delta R_{ik}(\tilde{a}_k - b_k - \eta_k)\Delta t \\
+&\Delta p_{ij} \hat{=} R_i^T(p_j - p_i -v_i\Delta t_{ij} - \frac{1}{2}g\Delta  t_{ij}^2) = \sum_{k=i}^{j-1}\big[ \Delta v_{ik}\Delta t + \cfrac{1}{2}\Delta R_{ik}(\tilde{a} - b - \eta)\Delta t^2 \big]
 \end{cases}
 \end{align}
 $$
+
+### 分离噪声
+$$
+\begin{align}
+\Delta R_{ij} &= \Delta\tilde{R}_{ij}\prod\limits_{k=i}^{j-1}\exp(-\Delta\tilde{R}_{k+1,j}^T\cdot J_r^k\eta \Delta t) \\
+ &= \Delta\tilde{R}_{ij}\exp(-\delta \phi)
+\end{align}
+$$
+其中$\Delta\tilde{R}_{ij}$ 为预积分测量值，由陀螺仪的测量值和对陀螺仪的bias的估计得到，$\exp(\delta\phi)$为其测量噪声
+
+$$
+\begin{align}
+\Delta v_{ij} &= \sum \Delta\tilde{R}_{ik}(\tilde{a} - b)\Delta t + \sum \big[\Delta\tilde{R}_{ik}[\tilde{a} - b][\delta]\Delta t - \Delta\tilde{R}_{ik}\eta\Delta t\big] \\
+& = \Delta \tilde{v}_{ij} - \delta v_{ij}
+\end{align}
+$$
+其中$\tilde{v}_{ij}$为预积分测量值，由IMU测量值和对bias的估计得到，$\delta v_{ij}$为其测量噪声
+
+$$
+\begin{align}
+\Delta p_{ij} &= \sum\big[ \Delta\tilde{v}_{ik}\Delta t + \cfrac{1}{2}\Delta\tilde{R}_{ik}(\tilde{a} - b)\Delta t^2 - \cfrac{1}{2}\Delta\tilde{R}\eta\Delta t^2 - \delta v_{ik}\Delta t \big] \\
+& \Delta \tilde{p}_{ij} - \delta p_{ij}
+\end{align}
+$$
+其中$\tilde{p}_{ij}$为预积分测量值，由IMU测量值和对bias的估计得到，$\delta p_{ij}$为其测量噪声
+
+### bias更新时的预积分测量值更新
+定义：
+- $\bar{b}$：旧bias
+- $\hat{b}$：新bias
+- $\delta b$：更新量
+
+
+
+### 残差
+
+
+### 残差定义
 三项残差定义如下：
 $$
 \begin{align}
