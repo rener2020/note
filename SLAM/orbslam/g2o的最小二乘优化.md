@@ -130,7 +130,9 @@ $$
 三项残差定义如下：
 $$
 \begin{align}
-r_R = \log
+r_R &= \log\big[ (\Delta \hat{R})^T \Delta R \big] \\
+r_v &= \Delta v - \Delta \hat{v} \\
+r_p &= \Delta p - \Delta\hat{p}
 \end{align}
 $$
 
