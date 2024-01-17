@@ -130,11 +130,15 @@ $$
 三项残差定义如下：
 $$
 \begin{align}
-r_R &= \log\big[ (\Delta \hat{R})^T \Delta R \big] \\
+r_R &= \log\big[ (\Delta \hat{R})^T \Delta R \big]  \\
+&= \log\big( \Delta \hat{R}_{ij}^T R_i^TR_j \big) \\
 r_v &= \Delta v - \Delta \hat{v} \\
-r_p &= \Delta p - \Delta\hat{p}
+& = R_i^T(s\tilde{v}_j - s\tilde{v}_i - g\Delta t) - \Delta \hat{v}_{ij}\\
+r_p &= \Delta p - \Delta\hat{p} \\
+& = R_i^T(s\tilde{p}_j - s\tilde{p}_i - s\tilde{v}_i - \cfrac{1}{2}g\Delta t^2_{j}) - \Delta \hat{p}_{ij}
 \end{align}
 $$
+对于orbslam来说，$\hat{1}$是IMU的观测，其他量是通过单目视觉来决定的“真实值”
 
 ## 雅可比推导
 $$
