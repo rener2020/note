@@ -212,4 +212,11 @@ $$
 
 ### 重投影误差
 
+$$
+r_p = \begin{bmatrix}
+\cfrac{x_j}{z_j}  - u_j \\
+\cfrac{y_j}{z_j}  - v_j \\
+\end{bmatrix}
+$$
+像素坐标$[u_i,v_i,1]$通过$\pi$的映射到$C_i$系中的$p_{ci} = [x_i,y_i,z_i]$，再通过$T_c^b$到$B_i$系的$P_{bi}$，再通过$T_{bi}^w$再通过$T_w^{bj}$转为$B_j$系中的点$p_{bj}$再通过$T_{bj}^{cj}$到$C_j$系再重投影到$p_{cj}=[x_j,y_j,z_j]$和$u_j,v_j,1$构建重投影方程
 
