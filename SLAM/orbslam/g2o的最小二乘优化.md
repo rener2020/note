@@ -186,6 +186,6 @@ $$
 \begin{align}
 r_{\tilde{v}_{ij}}[R_i\exp(\delta\theta)] &= [R_i\exp(\delta\theta)]^T(v_j - v_i - g\Delta t_{ij}) \\
 &= [R_i(I + [\delta\theta])]^T(v_j - v_i - g\Delta t_{ij}) \\
-&= [(I-[\delta\theta])R_i^T]
+&= [(I-[\delta\theta])R_i^T](v_j - v_i - g\Delta t_{ij})
 \end{align}
 $$
