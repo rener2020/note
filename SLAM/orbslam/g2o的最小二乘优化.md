@@ -169,4 +169,23 @@ J = \lim_{\Delta x \to 0}\frac{F(x+\Delta x)}{\Delta x}
 $$
 ### 速度增量
 $$\Delta v_{ij} = R_i^t(v_j - v_i -g\Delta t_{ij})$$
-雅可比：
+假设：
+$$
+\begin{align}
+r_{\Delta\tilde{v}_{ij}} &= R_i^T(v_j - v_i - g\Delta t_{ij}) \to \\
+r_{\Delta\tilde{v}_{ij}(v_i + \delta v_{i})} & = R_i^T(v_j - v_i -\delta v_i - g\Delta t_{ij})\\
+& = r_{\Delta\tilde{v}_{ij}(v_i)}  - R_i^T\delta v_i
+\end{align}
+$$
+速度雅可比：
+$$
+\cfrac{\partial r_{\Delta v_{ij}}}{\partial\delta v_i} = -R_i^T
+$$
+旋转雅可比：
+$$
+\begin{align}
+r_{\tilde{v}_{ij}}[R_i\exp(\delta\theta)] &= [R_i\exp(\delta\theta)]^T(v_j - v_i - g\Delta t_{ij}) \\
+&= [R_i(I + [\delta\theta])]^T(v_j - v_i - g\Delta t_{ij}) \\
+&= [(I-[\delta\theta])R_i^T]
+\end{align}
+$$
