@@ -167,6 +167,13 @@ $$
 $$
 J = \lim_{\Delta x \to 0}\frac{F(x+\Delta x)}{\Delta x}
 $$
+常用公式：
+$$
+\begin{align}
+[I + [\delta\theta]]^T &= [I - [\delta\theta]] \\
+[a]b &= -[b]a
+\end{align}
+$$
 ### 速度增量
 $$\Delta v_{ij} = R_i^t(v_j - v_i -g\Delta t_{ij})$$
 假设：
@@ -186,6 +193,23 @@ $$
 \begin{align}
 r_{\tilde{v}_{ij}}[R_i\exp(\delta\theta)] &= [R_i\exp(\delta\theta)]^T(v_j - v_i - g\Delta t_{ij}) \\
 &= [R_i(I + [\delta\theta])]^T(v_j - v_i - g\Delta t_{ij}) \\
-&= [(I-[\delta\theta])R_i^T](v_j - v_i - g\Delta t_{ij})
+&= [(I-[\delta\theta])R_i^T](v_j - v_i - g\Delta t_{ij}) \\
+& = R_i^T(v_j - v_i -g\Delta t) - [\delta\theta]R_i^T(v_j - v_i -g\Delta t) \\
+& = A + B\delta\theta
 \end{align}
 $$
+
+则有：
+$$
+\cfrac{\partial\Delta v_{ij}}{\partial\delta \theta} = B
+$$
+### 位置相关：
+$$
+\Delta\tilde{p}_{ij} = R_i^T(p_j -p_i - v_i \Delta t - \cfrac{1}{2}g\Delta t_{ij}) \\
+p_i = p_i + R_i\delta p_i \\
+$$
+雅可比为$-I$
+
+### 重投影误差
+
+
