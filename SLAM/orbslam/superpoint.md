@@ -15,3 +15,5 @@
 - Decoder：
 	- Interest Point： 特征点位置描述，softmax，NMS，reshape
 	- Descriptor：描述子生成，插值，L2-Norm
+
+![enter description here](./images/1705629033218.png)
