@@ -10,3 +10,8 @@
 
 ## 基于Encoder-Decoder的网络结构
 
+- input：图像
+- Encoder：卷积神经网络
+- Decoder：
+	- Interest Point： 特征点位置描述，softmax，NMS，reshape
+	- Descriptor：描述子生成，插值，L2-Norm
