@@ -37,3 +37,7 @@ SUPERGLUE主要由基于注意力机制的图网络层和最优匹配层组成�
 2. cross-attention：本图像的点聚合其他图像中特征点的信息
 
 两者交叉进行，信息不断累计，搭配注意力机制，做到了很强的信息聚合能力，最终输出matching descriptor。看作描述子增强
+
+### 运输问题建模求解匹配问题
+
+![enter description here](./images/1705664405810.png)
