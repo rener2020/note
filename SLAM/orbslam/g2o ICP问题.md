@@ -9,11 +9,7 @@ $$p_1 = Tp_2$$
 $$
 \begin{align}
 e &= p_1 - Tp_2 \\
-\begin{bmatrix}
-x_1\\y_1\\z_1
-\end{bmatrix} &= T\begin{bmatrix}
-x_\\y_2\\z_2
-\end{bmatrix}
+
 \end{align}
 $$
 
