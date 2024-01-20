@@ -9,9 +9,26 @@ $$p_1 = Tp_2$$
 $$
 \begin{align}
 e &= p_1 - Tp_2 \\
-
+&=\begin{bmatrix}
+x_1\\y_1\\z_1
+\end{bmatrix}-\exp(\xi)\begin{bmatrix}
+x_2\\y_2\\z_2
+\end{bmatrix}
 \end{align}
 $$
+则有最优参数：
+$$
+\xi^{*} = \arg\min\sum||{}^1p_i - \exp(\xi){}^2p_i||
+$$
+
+
+
+
+
+
+
+
+
 
 
 
