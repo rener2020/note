@@ -7,7 +7,7 @@ $$p_1 = Tp_2$$
 
 其匹配误差为：
 
-$
+$$
 \begin{align}
 e &= p_1 - Tp_2 \\
 \begin{bmatrix}
@@ -16,7 +16,9 @@ x_1\\y_1\\z_1
 x_\\y_2\\z_2
 \end{bmatrix}
 \end{align}
-$
+$$
+
+
 
 
 
