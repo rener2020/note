@@ -6,7 +6,6 @@ $$p_1 = Tp_2$$
 求解$T$
 
 其匹配误差为：
-
 $$
 \begin{align}
 e &= p_1 - Tp_2 \\
@@ -17,6 +16,8 @@ x_\\y_2\\z_2
 \end{bmatrix}
 \end{align}
 $$
+
+
 
 
 
