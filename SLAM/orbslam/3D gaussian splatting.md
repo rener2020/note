@@ -31,4 +31,4 @@ title: 3D gaussian splatting
 $$\Sigma = A^TA$$
 ![enter description here](./images/1706092730833.png)
 
-$R$控制高斯分布的方向，$S$控制高斯分布椭球的比例
+$R$为旋转矩阵，控制高斯分布的方向，$S$为比例系数，控制高斯分布椭球的比例
