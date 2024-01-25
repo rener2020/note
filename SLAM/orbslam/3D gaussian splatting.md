@@ -82,7 +82,7 @@ $R$为旋转矩阵，控制高斯分布的方向，$S$为比例系数，控制�
 
 
 
-即为直角坐标表达式中的值嘉禾
+即为直角坐标表达式中的值加和
 
 ## 代码
 gaussians = GaussianModel(dataset.sh_degree)
