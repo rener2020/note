@@ -24,7 +24,7 @@ title: c++八股
 	- malloc 分配失败，返回 NULL
 4. 分配空间
 	- new 通常在free store 自由存储区上分配空间
-			1. operator new
+			1. operator new 可重写
 			2. 申请足够空间
 			3. 调用构造函数，初始化成员变量，已经拥有物理内存
 	- malloc 大小小于128k，通过brk进行系统调用进行在堆空间进行内存分配，大于128k通过mmap系统调用在文件映射区进行分配
@@ -32,7 +32,7 @@ title: c++八股
 5. 释放
 	- delete 需要对象类型的指针
 		1. 调用析构函数
-		2. operatordelete
+		2. operator delete 可重写
 		3. 释放空间
 	- free是 void * 类型的指针
 
