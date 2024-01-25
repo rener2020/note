@@ -21,7 +21,7 @@ title: c++八股
 		`Task *ptack = malloc(sizeof(*ptask))`
 3. 失败
 	- new 分配失败，抛出异常
-	- malloc 分配失败，返回null
+	- malloc 分配失败，返回 NULL
 
 
 
