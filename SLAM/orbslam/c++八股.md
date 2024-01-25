@@ -18,6 +18,9 @@ title: c++八股
 ## 返回值
 - new的返回值是改类型对象的指针
 - malloc返回的是一个 void * 已擦除类型，需要进行类型转换
+	`Task *ptack = malloc(sizeof(*ptask))`
+
+
 
 
 
