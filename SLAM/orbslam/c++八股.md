@@ -4,7 +4,7 @@ title: c++八股
 2024-01
 
 ## linux内存模型
-![enter description here](./images/1706172088485.png)
+![](./images/1706172297489.png)](./images/1706172304883.png)
 
 
 ## malloc、free和new、delete 的区别
