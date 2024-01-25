@@ -75,5 +75,5 @@ title: c++八股
 - 栈区
 - 文件映射区
 - 堆区
-- 数据区（静态存储区）  .bss .data
-- 代码区 .rodata
+- 数据区（静态存储区）  `.bss` `.data`
+- 代码区  `.text` `.rodata` 
