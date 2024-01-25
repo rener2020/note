@@ -124,3 +124,4 @@ title: c++八股
 
 
 ## 进程和线程
+都是 task_struct
