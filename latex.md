@@ -33,3 +33,11 @@ x^{\prime} = x(1+k_1r^2+k_2r^4+k_3r^6)\\
 y^{\prime} = y(1+k_1r^2+k_2r^4+k_3r^6)
 \end{cases}
 $$
+
+
+$$
+\begin{cases}
+x^{\prime}=x+2p_1xy+p_2(r^2+2x^2)\\
+y^{\prime}=y+2p_2xy+p_1(r^2+2y^2)
+\end{cases}
+$$
