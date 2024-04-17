@@ -58,7 +58,9 @@ $p_2  \simeq K(R-\frac{tn^T}{d})K^{-1}p_1$
 
 
 $$
+
 \begin{cases}
+111\\
 T = \begin{bmatrix}
 R & t \\0 & 1
 \end{bmatrix}  \\
@@ -67,7 +69,7 @@ T_C^O = \begin{bmatrix}
 1 & 0 & 0 & 60 \\
 0 & 1& 0 & 0 \\
 0 & 0& 1 & 0 \\
-0 & 0& 0 & 1
+0 & 0& 0 & 1 \\
 \end{bmatrix}
-\end{cases}
+\end{cases} \\
 $$
