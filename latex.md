@@ -58,9 +58,8 @@ $p_2  \simeq K(R-\frac{tn^T}{d})K^{-1}p_1$
 
 
 $$
-
 \begin{cases}
-111\\
+1 \\
 T = \begin{bmatrix}
 R & t \\0 & 1
 \end{bmatrix}  \\
