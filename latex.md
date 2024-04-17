@@ -15,7 +15,7 @@ $xyz$
 
 $$
 Z\begin{bmatrix}
-u\\v
+u\\v\\1
 \end{bmatrix}=
 \begin{bmatrix}
 f_x & 0 & c_x \\
@@ -39,5 +39,29 @@ $$
 \begin{cases}
 x^{\prime}=x+2p_1xy+p_2(r^2+2x^2)\\
 y^{\prime}=y+2p_2xy+p_1(r^2+2y^2)
+\end{cases}
+$$
+
+
+$p_1p_2$
+
+$O_1O_2$
+
+
+$e_1e_2l_1l_2$
+
+$$p_2^TK^{-T}[t]RK^{-1}p_1=0$$
+
+$p_2  \simeq K(R-\frac{tn^T}{d})K^{-1}p_1$
+
+
+
+
+$$
+\begin{cases}
+T = \begin{bmatrix}
+R & t \\0 & 1
+\end{bmatrix}  \\
+T_W^O = T_W^C \cdot T_C^O
 \end{cases}
 $$
