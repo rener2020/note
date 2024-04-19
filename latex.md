@@ -86,11 +86,16 @@ $$T_C^O = \begin{bmatrix}
    3.3 融合铁塔信息模型的定位 这一节给出融合机器人初始定位数据和输电铁塔三维信息模型进行定位的方法
 
 $$
+\begin{cases}
 R = \begin{bmatrix}
 c\alpha c\beta & c\alpha s\beta s\gamma - s\alpha c \gamma & c\alpha s\beta c\gamma + s\alpha s\gamma \\
 s\alpha c\beta & s\alpha s\beta s\gamma + c\alpha c\gamma & s\alpha s\beta c\gamma - c\alpha s\gamma \\
 -s\beta & c\beta s\gamma & c\beta c\gamma
+\end{bmatrix}\\
+t = \begin{bmatrix}
+x \\ y \\ z
 \end{bmatrix}
+\end{cases}
 $$
 
 	$\gamma$
