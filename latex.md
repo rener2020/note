@@ -128,4 +128,17 @@ $$
 
 $$D(p) = \sum\limits_{i=1}^{n}2^{i-1}\varsigma(p;a_i;b_i)$$
 
-$$C_{mn}=\sum_{(x,y)\in PA}x^{m}y^{n}I(x,y)$$
+$$
+\begin{cases}
+m_{pq}=\sum_{(x,y) \in PA}x^{p}y^{q}I(x,y) \\
+\theta = \arctan m_{01} / m_{10}
+\end{cases}
+$$
+
+
+$$
+S=\begin{bmatrix}
+x_1&x_2&x_3,\cdots \\
+y_1&y_2&y_3,\cdots \\
+\end{bmatrix}
+$$
