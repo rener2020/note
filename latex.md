@@ -156,5 +156,13 @@ $$
 
 
 $$
-sp=K(RP+t)
+\begin{align}
+s\begin{bmatrix}
+u\\v\\1
+\end{bmatrix}
+&=K\begin{bmatrix}
+R&|&t
+\end{bmatrix}P = \begin{bmatrix}f_x&0&c_x\\0&f_y&c_y\\0&0&1\end{bmatrix}\begin{bmatrix}r_{11}&r_{12}&r_{13}&t_1\\r_{21}&r_{22}&r_{23}&t_2\\r_{31}&r_{32}&r_{33}&t_3\end{bmatrix}\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix} \\
+&= s
+\end{align}
 $$
