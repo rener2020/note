@@ -148,3 +148,8 @@ S_\theta = \begin{bmatrix}
 \end{bmatrix}S
 \end{cases}
 $$
+
+
+$$
+H(D_1,D_2)= \sum\limits_{i=1}^{n}{\rm XOR}(D_1^i,D_2^i)
+$$
