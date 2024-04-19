@@ -87,7 +87,9 @@ $$T_C^O = \begin{bmatrix}
 
 $$
 R = \begin{bmatrix}
-1
+c\alpha c\beta & c\alpha s\beta s\gamma - s\alpha c \gamma & c\alpha s\beta c\gamma + s\alpha s\gamma \\
+s\alpha c\beta & s\alpha s\beta s\gamma + c\alpha c\gamma & s\alpha s\beta c\gamma - c\alpha s\gamma \\
+-s\beta & c\beta s\gamma & c\beta c\gamma
 \end{bmatrix}
 $$
 
