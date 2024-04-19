@@ -91,7 +91,13 @@ R = \begin{bmatrix}
 c\alpha c\beta & c\alpha s\beta s\gamma - s\alpha c \gamma & c\alpha s\beta c\gamma + s\alpha s\gamma \\
 s\alpha c\beta & s\alpha s\beta s\gamma + c\alpha c\gamma & s\alpha s\beta c\gamma - c\alpha s\gamma \\
 -s\beta & c\beta s\gamma & c\beta c\gamma
-\end{bmatrix}\\
+\end{bmatrix} = 
+\begin{bmatrix}
+r_{11} & r_{12} & r_{13} \\
+r_{21} & r_{22} & r_{23} \\
+r_{31} & r_{32} & r_{33} 
+\end{bmatrix}
+\\
 t = \begin{bmatrix}
 x \\ y \\ z
 \end{bmatrix}
