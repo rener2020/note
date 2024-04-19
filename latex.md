@@ -104,4 +104,10 @@ x \\ y \\ z
 \end{cases}
 $$
 
-	$\gamma$
+
+
+$$
+\beta = {\rm Atan2}(-r_{31},\sqrt{r_{11}^2+r_{21}^2}) \\
+\alpha = {\rm Atan2}(\frac{r_{21}}{c\beta},\frac{r_{11}}{c\beta}) \\
+\gamma = {\rm Atan2}(\frac{r_{32}}{c\beta},\frac{r_{33}}{c\beta}) \\
+$$
