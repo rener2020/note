@@ -151,5 +151,10 @@ $$
 
 
 $$
-H(D_1,D_2)= \sum\limits_{i=1}^{n}{\rm XOR}(D_1^i,D_2^i)
+H(D_1,D_2)= \sum\limits_{i=1}^{2}{\rm XOR}(D_1^i,D_2^i)
+$$
+
+
+$$
+sp=K(RP+t)
 $$
