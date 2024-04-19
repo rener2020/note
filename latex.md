@@ -125,3 +125,7 @@ $$
 $$
 T_W^O = T_W^TT_T^CT_C^O
 $$
+
+$$D(p) = \sum\limits_{i=1}^{n}2^{i-1}\varsigma(p;a_i;b_i)$$
+
+$$C_{mn}=\sum_{(x,y)\in PA}$$
