@@ -137,8 +137,14 @@ $$
 
 
 $$
+\begin{cases}
 S=\begin{bmatrix}
 x_1&x_2&x_3,\cdots \\
 y_1&y_2&y_3,\cdots \\
+\end{bmatrix}  \\
+S_\theta = \begin{bmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta \\
 \end{bmatrix}
+\end{cases}
 $$
