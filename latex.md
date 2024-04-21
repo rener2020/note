@@ -188,3 +188,19 @@ x_{k1}^{\prime} = x_{k1} - u_{x} \\
 y_{k2}^{\prime} = y_{k2} - u_{y}
 \end{cases}
 $$
+
+构建M矩阵：
+$$
+M = \sum\limits_{k=1}^{n}x_{k1}^{\prime}y_{k2}^{\prime T}
+$$
+
+$$
+M = U\Sigma V^T
+$$
+
+$$
+\begin{cases}
+R = VU^T
+t  = u_x - Ru_y
+\end{cases}
+$$
