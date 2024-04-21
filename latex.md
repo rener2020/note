@@ -236,3 +236,12 @@ $$
 0.75|\vec{ad}| < |\vec{e_id_i}| < 1.25|\vec{ad}| 
 \end{cases}
 $$
+
+$\epsilon = \frac{2\sum\limits_{k=i}^{n}e_k}{n}$
+
+$e=|x_{k2} - Ry_{k1} - t|$
+
+
+$$E(x)=\frac{1}{2}||Ra+t-b||^2$$
+
+$x^* = \hat{x}+\Delta x^*$
