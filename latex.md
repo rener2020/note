@@ -163,6 +163,28 @@ u\\v\\1
 &=K\begin{bmatrix}
 R&|&t
 \end{bmatrix}P = \begin{bmatrix}f_x&0&c_x\\0&f_y&c_y\\0&0&1\end{bmatrix}\begin{bmatrix}r_{11}&r_{12}&r_{13}&t_1\\r_{21}&r_{22}&r_{23}&t_2\\r_{31}&r_{32}&r_{33}&t_3\end{bmatrix}\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix} \\
-&= s
 \end{align}
+$$
+
+$$x_t = f(x_{t-1},u_t,w_t)$$
+
+$z_{t,j}=h(m_j,x_t,v_{t,j})$
+
+$Q_0 = \cfrac{\sum\limits_{i=1}^{n} Q_i}{n}$
+
+$$E(R,t)=\frac{1}{N}\sum\limits_{k=1}^{n}||x_{k1} - Ry_{k2}-t||^2$$
+
+$$
+\begin{cases}
+u_x = \frac{1}{N}\sum\limits_{k=1}^{n}x_{k1} \\
+u_y = \frac{1}{N}\sum\limits_{k=1}^{n}y_{k1} 
+\end{cases}
+$$
+
+
+$$
+\begin{cases}
+x_{k1}^{\prime} = x_{k1} - u_{x} \\
+y_{k2}^{\prime} = y_{k2} - u_{y}
+\end{cases}
 $$
