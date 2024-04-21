@@ -200,7 +200,39 @@ $$
 
 $$
 \begin{cases}
-R = VU^T
+R = VU^T \\
 t  = u_x - Ru_y
+\end{cases}
+$$
+
+$$y_i = Ry_i + t$$
+
+$$
+T_T^S =\begin{bmatrix}
+R & t \\
+0 & 1
+\end{bmatrix}
+$$
+
+$$t_0 = \frac{\sum\limits_{i-1}^{n}y_i}{n} - \frac{\sum\limits_{i-1}^{n}x_i}{n}$$
+
+$$
+T_T^O = T_T^ST_S^O
+$$
+
+$$
+c = \frac{m!}{(m-n)!}
+$$
+
+$\circ$
+$$
+\vec{ab}\times \vec{ac} \neq 0
+$$
+
+$$
+\begin{cases}
+0.75|\vec{ab}| < |\vec{e_id_i}| < 1.25|\vec{ab}| \\
+0.75|\vec{cd}| < |\vec{d_ig_i}| < 1.25|\vec{cd}| \\
+0.75|\vec{ad}| < |\vec{e_id_i}| < 1.25|\vec{ad}| 
 \end{cases}
 $$
