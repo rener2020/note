@@ -251,5 +251,20 @@ $E(x)=\frac{1}{2}||f(x)||^2_2$
 $T_S^O$
 
 $$
-T_T^S
+T_T^S=\begin{bmatrix}
+R & t \\
+0 & 1
+\end{bmatrix}
+$$
+
+$$
+T_T^O = T_T^ST_S^O
+$$
+
+$A=\{a_1,a_2,\cdots,a_n\}$
+$B=\{b_1,b_2,\cdots,b_m\}$
+
+
+$$
+\{(\gamma_2,\beta_2,\alpha_2),(\gamma_2,\beta_2,\alpha_2),\cdots\}
 $$
