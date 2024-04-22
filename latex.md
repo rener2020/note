@@ -274,3 +274,21 @@ $$
 $$
 (\gamma_i,\beta_i,\alpha_i)
 $$
+
+$\{z_1,z_2,\cdots,z_g\}$
+
+$\epsilon$
+
+$$
+\{a_1^{s},a_2^{s},\cdots,a_r^{s}\}
+$$
+
+$a^{s}_i$
+
+$$
+\{(x_1,y_1),(x_2,y_2),\cdots,(x_r,y_r)\}
+$$
+
+$5\circ$
+
+$$\frac{|E_i - E_{i-1}|}{n} > \sigma$$
