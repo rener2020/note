@@ -268,3 +268,9 @@ $B=\{b_1,b_2,\cdots,b_m\}$
 $$
 \{(\gamma_2,\beta_2,\alpha_2),(\gamma_2,\beta_2,\alpha_2),\cdots\}
 $$
+
+
+
+$$
+(\gamma_i,\beta_i,\alpha_i)
+$$
