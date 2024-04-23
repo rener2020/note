@@ -316,3 +316,7 @@ T = \begin{bmatrix}
 0 & 0 & 0 & 0 \\
 \end{bmatrix}
 $$
+
+$$
+T_T^O = T_T^S T_S^C T^C^O
+$$
