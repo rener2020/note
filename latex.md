@@ -318,5 +318,5 @@ T = \begin{bmatrix}
 $$
 
 $$
-T_T^O = T_T^S T_S^C T^C^O
+T_T^O = T_T^S T_S^C T_C^O
 $$
