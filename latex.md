@@ -320,3 +320,10 @@ $$
 $$
 T_T^O = T_T^S T_S^C T_C^O
 $$
+
+
+$$
+T_C^O = {T_O^C}^{-1} = \begin{bmatrix}
+1
+\end{bmatrix}
+$$
