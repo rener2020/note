@@ -340,3 +340,10 @@ e_r = |\theta - \hat{\theta}|  \\
 e_d = |d - \hat{d}|
 \end{cases}
 $$
+
+
+$$T_C^O = \begin{bmatrix}
+1 & 0 &  0\\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}$$
