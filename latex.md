@@ -367,3 +367,12 @@ T = \begin{bmatrix}
  0& 0& 0&  1 \\
   \end{bmatrix}
 $$
+
+
+$$
+AE = \sqrt{(x-\hat{x})^2 + (y-\hat{y})^2 + (z-\hat{z})^2}
+$$
+
+$$
+p = KT_S^C{}^SP
+$$
